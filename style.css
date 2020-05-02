@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+
+:root {
+  --window-color:#363636;
+  /*--window-color:#775bff;*/
+
+}
+
+.window {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 5px;
+  max-width: 200px;
+}
+
+body{
+	background-color: #fff;
+	margin: 0px;
+  overflow-x: hidden; /* Hide scrollbars */
+  font-family: 'Ubuntu Mono', monospace;
+
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.title{
+	font-size: 8vw;
+	font-family: 'Poiret One', cursive;	
+}
+
+h2{
+  font-family: 'Poiret One', cursive;
+  font-size: 32px; 
+}
+
+.header{
+  font-family: 'Poiret One', cursive;
+  font-size: 40px;
+}
+
+.gradient {
+
+  /*background: linear-gradient(-60deg, #81f7f7 20%, #ff98be 30%, #ff98be 70%, #81f7f7	 80%);*/
+  background: linear-gradient(-60deg, #775bff 20%, #fd75ff 30%, #fd75ff 70%, #775bff  80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShine 7s ease-in-out infinite;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200%;
+  }
+}
+
+.content {
+	position: fixed;
+	background-image: radial-gradient(#fdbdbd 8%,transparent 10%);
+	background-size: 15px 15px;
+	color: #222;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	scrollbar-color: #555 #000;
+  /*padding: 20px;*/
+}
+
+::-webkit-scrollbar-track {
+  background-color: red;
+  outline: 1px solid slategrey;
+}
+
+.plaza{
+	background: #111;
+	width: 100%;
+	margin-right: 0px;
+	height: 100%;
+}
+
+
+.blackBox{
+	/*display: inline-flex;*/
+  position:fixed;
+  right:30px;
+  top:30px;
+  padding: 30px;
+	background: #222;
+	/*margin:30px;*/
+
+
+}
+
+.menu{
+  background-color: #fff;
+  float:left;
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+  
+}
+
+#menuItems{
+  padding: 30px;
+
+}
+
+#LeftWrapper{
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+.info{
+  float:left; /* add this */
+  width:800px;
+  margin-left: 30px;
+  padding-top:0px;
+  background-color: #fff;
+  padding:30px;
+
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+}
+
+.topbar{  
+  /*background-color: #775bff;*/
+  display: block;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  /*color: var(--window-color);*/
+  border-style: none none dotted none;
+  text-align: center;
+  font-weight: bold;
+
+  /*box-sizing: border-box;*/
+  /*width: 100%;*/
+  /*margin: -30px;*/
+}
