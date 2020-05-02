@@ -117,7 +117,7 @@ h2{
   left: 30px;
 }
 
-.info{
+.ContentWindow{
   float:left; /* add this */
   width:800px;
   margin-left: 30px;
