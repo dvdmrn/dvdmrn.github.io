@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900');
 
 :root {
   --window-color:#363636;
+  --header-font:"Nunito";
   /*--window-color:#775bff;*/
 
 }
@@ -23,6 +26,11 @@ body{
 
 }
 
+hr{
+  border: none;
+  border-top: dotted;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -38,8 +46,10 @@ h2{
 }
 
 .header{
-  font-family: 'Poiret One', cursive;
+  /*border: 10px solid;*/
+  font-family: var(--header-font);
   font-size: 40px;
+  font-weight: 500;
 }
 
 .gradient {
@@ -103,7 +113,7 @@ h2{
   border: 1px solid;
   border-color: var(--window-color);
   box-shadow: 10px 10px var(--window-color);
-  
+
 }
 
 #menuItems{
@@ -119,8 +129,9 @@ h2{
 
 .ContentWindow{
   float:left; /* add this */
+  position: fixed;
   width:800px;
-  margin-left: 30px;
+  margin-left: 200px;
   padding-top:0px;
   background-color: #fff;
   padding:30px;
@@ -140,7 +151,10 @@ h2{
   /*color: var(--window-color);*/
   border-style: none none dotted none;
   text-align: center;
-  font-weight: bold;
+  font-weight: 800;
+  font-family: var(--header-font);
+  font-size: 20px;
+
 
   /*box-sizing: border-box;*/
   /*width: 100%;*/
