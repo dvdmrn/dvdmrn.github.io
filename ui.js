@@ -15,7 +15,7 @@ var lastWindow = "home"
   		if(win=="about") {$( "#about" ).toggle("size", 200 );}
   		if(win=="projects") $( "#projects" ).toggle("size", 200 );
   		if(win=="contact") $( "#contact" ).toggle("size", 200 );
-  		if(win=="home") $( "#contact" ).toggle("size", 200 );
+  		if(win=="home") $( "#home" ).toggle("size", 200 );
 
   	}
 
