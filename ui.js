@@ -3,6 +3,7 @@ var lastWindow = "home"
   $( function() {
 
   	$("#projects").toggle();
+    $("#research").toggle();
   	$("#contact").toggle();
   	$("#about").toggle();
 
@@ -14,6 +15,7 @@ var lastWindow = "home"
   		$("#"+last).toggle("size", 200 );
   		if(win=="about") {$( "#about" ).toggle("size", 200 );}
   		if(win=="projects") $( "#projects" ).toggle("size", 200 );
+      if(win=="research") $( "#research" ).toggle("size", 200 );
   		if(win=="contact") $( "#contact" ).toggle("size", 200 );
   		if(win=="home") $( "#home" ).toggle("size", 200 );
 
@@ -77,6 +79,17 @@ var lastWindow = "home"
   		$( "#contact" ).draggable({disabled:true});
   	});
 
+    // contact dragging --------------------------------------------------------
+
+    $(".researchBar").mousedown(()=>{
+      $( "#research" ).draggable({disabled:false});
+
+    })
+    $(".researchBar").mouseup(()=>{
+      $( "#research" ).draggable({disabled:true});
+    });
+
+
   	// =========================================================================
   	// toggling windows 
   	// =========================================================================
@@ -101,5 +114,11 @@ var lastWindow = "home"
   		openWindow("contact",lastWindow);
   		lastWindow = "contact";
   	})  
+
+    $("#research_selector").click(()=>{
+      openWindow("research",lastWindow);
+      lastWindow = "research";
+    })  
+
 
   } );
