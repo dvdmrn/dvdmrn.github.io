@@ -1,0 +1,56 @@
+/* VARS defined in rootsyle.css */
+
+
+.ContentWindow{
+  /* main windows */
+  float:left; /* add this */
+  position: fixed;
+  max-width:800px;
+  margin-left: 200px;
+  background-color: #fff;
+  padding-top:0px;
+  padding:30px;
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+  max-height: 600px;
+  }
+
+.ContentWindowContent{
+  /* main window content */
+  overflow-y: scroll;
+  max-height: 600px;
+  margin-top: -20px;
+  margin-right: -30px;
+  margin-bottom: -30px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.PetWindow{
+  /* pet */
+  float:left; /* add this */
+  position: fixed;
+  width:200px;
+  height:200px;
+  bottom:0;
+  right:0;
+  margin: 50px;
+  background-color: #fff;
+  padding-top:0px;
+  padding:30px;
+
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+  /*max-height: 600px;*/
+  }
+
+#avi{
+  /* personal pic */
+  float:left;
+  max-width: 300px;
+  height: auto;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}

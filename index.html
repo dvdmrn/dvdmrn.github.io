@@ -2,20 +2,19 @@
 <html lang="en"> 
 <head>
  <meta charset="utf-8"/>
-	<link rel='stylesheet' type="text/css" href="style.css">
+	<link rel='stylesheet' type="text/css" href="style/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="Windows69.js"></script>
-  <script src="WindowManager.js"></script>
+  <script src="Icon.js"></script>
   <script src="Window.js"></script>
-
-
 </head>
 
+
 <body>
-
-
 	<div class="content">
+
+	<div id="loader"></div> 
 
 	<div id="LeftWrapper">
 
@@ -23,9 +22,20 @@
 			<div class="topbar gradient"> menu </div>
 			<div id="menuItems">
 				<span class="menuItem" id="home_selector">+ home </span><p></p>
-				<span class="menuItem" id="about_selector">+ about </span><p></p>
+				<span class="menuItem" id="about_selector">+ about </span><br>
+				<div id="about_submenu" class="submenu">
+				<span class="menuItem" id="edu">⤷ edu. </span><br>
+				<span class="menuItem" id="cv">⤷ CV </span><br>
+				</div><p></p>
 				<span class="menuItem" id="research_selector">+ research </span><p></p>
-				<span class="menuItem" id="projects_selector">+ projects </span><p></p>
+				<span class="menuItem" id="projects_selector">+ projects </span><br>
+				<div id="projects_submenu" class="submenu">
+				<span class="menuItem" id="film_selector">⤷ film </span><br>
+				<span class="menuItem" id="photography_selector">⤷ photo </span><br>
+				<span class="menuItem" id="design_selector">⤷ design </span><br>
+				<span class="menuItem" id="photography_selector">⤷ comics </span><br>
+
+				</div><p></p>
 				<span class="menuItem" id="contact_selector">+ contact </span>
 			</div>
 		</div>
@@ -36,9 +46,10 @@
 			<!-- <div class="gradient header">about</div><p></p> -->
 			<!-- <hr> -->
 			<p></p>
-			<span class="gradient"><b>David Marino</b></span><p>
-			{designer, researcher, .*}<p>
-			Home screen. Welcome! 🌈
+			<span class="gradient"><b>Welcome!</b></span><p>
+			💡 TIP: Use panels to the left to navigate.
+
+			<!-- {designer, researcher, .*}<p> -->
 		</div>
 
 
@@ -49,18 +60,20 @@
 			<!-- <hr> -->
 			<p></p>
 			<div class="ContentWindowContent">
-				<img src="img/avi.png" id="avi">
+				<img src="img/avi-pink.png" id="avi">
 			<span class="gradient"><b>David Marino</b></span><p>
-			{designer, researcher, .*}<p>
-			I am currently a MSc student in the department of Electrical and Computer Engineering at the McGill University <a href="http://srl.mcgill.ca/">Shared Reality Lab</a>. My work focuses on multimodal natural language interfaces between intelligent agents.<p>
+			{designer, researcher, .*er}<p>
+			Broadly speaking I am a designer and researcher with a background in cognitive science. But I am also many other things. Here are a few:<p></p>
+
+			I'm currently a MSc student in the department of Electrical and Computer Engineering at McGill University's <a href="http://srl.mcgill.ca/">Shared Reality Lab</a>. My work focuses on multimodal natural language interfaces between intelligent agents.<p>
 			
-			I am also a self proclaimed "video generalist". What does that mean? I have expertise in end-to-end video production, encompassing: directing, cinematography, motion graphics, editing, and producing. Top clients of mine include: The Globe and Mail, Coast Capital Savings, Dentons, and many more.<p>
+			I'm a video generalist, with expertise in cinematography, editing, directing, motion graphics, and producing. <p></p>
 
-			Okay one more "I am" statement I swear: I'm also an illustrator and comic artist. I created the webcomic <a href="http://leftoversalad.com">leftoversalad</a>. <p>
 
-			<b>Education</b>
-			I studied film at Capilano University, whereafter I worked in the industry for a number of years. I then completed a BA in Cognitive Systems at the University of British Columbia. Cognitive Systems unites the fields of linguistics, psychology, philosophy, and computer science to study the design of intelligent systems and the interfaces between them. My emphasis was in Language--it's structure and cognitive realization. Examples of courses taken: cognitive neuroscience, syntax, software engineering, human-computer interaction (HCI). I am currently doing my masters in Electrical and Computer Engineering at McGill with an emphasis on HCI. Examples of classes taken are: applied machine learning, 
+			I make comics @ <a href="http://leftoversalad.com">leftoversalad</a> <p>
 
+			<!-- I studied film at Capilano University, whereafter I worked in the industry for a number of years. I then completed a BA in Cognitive Systems at the University of British Columbia. Cognitive Systems unites the fields of linguistics, psychology, philosophy, and computer science to study the design of intelligent systems and the interfaces between them. My emphasis was in Language--it's structure and cognitive realization. Examples of courses taken: cognitive neuroscience, syntax, software engineering, human-computer interaction (HCI). I am currently doing my masters in Electrical and Computer Engineering at McGill with an emphasis on HCI. Examples of classes taken are: applied machine learning, 
+ -->
 			</div>
 		</div>
 
@@ -86,7 +99,7 @@
 
 			<p></p>
 
-			<a href="https://scholar.google.com/citations?user=dLgup7MAAAAJ&hl=en">My publications</a>.<p></p>
+			<a href="https://scholar.google.com/citations?user=dLgup7MAAAAJ&hl=en" target="_blank">My publications</a>.<p></p>
 
 			<a href="">Here</a> are some of my favorite articles
 		</div>
@@ -121,11 +134,19 @@
 
 	<div class="PetWindow" id="pet">
 			<!-- <h2 class="gradient">about</h2><p></p> -->
-			<div class="contentTopBar petBar"> virtual pet </div>
+			<div class="contentTopBar petBar"> virtual pet  <span class="close" id="pet_close">x</span></div>
 			<!-- <div class="gradient header">about</div><p></p> -->
 			<!-- <hr> -->
-			<p></p>
-			<center>🦔</center>
+			<p></p><center>
+<pre>
+🥦           🥦
+
+        🥦
+
+
+   🦔
+</pre>
+			</center>
 		</div>
 
 
