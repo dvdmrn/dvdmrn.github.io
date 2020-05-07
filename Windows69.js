@@ -39,6 +39,8 @@ var subMenus = {
     let about = new Window("about","about_submenu");
     about.addSubmenu("edu", "submenu/edu.html");
     about.addSubmenu("cv","submenu/cv.html");
+    about.addSubmenu("skills","submenu/skills.html");
+
 
     let research = new Window("research");
     let projects = new Window("projects","projects_submenu");

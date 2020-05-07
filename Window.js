@@ -64,9 +64,11 @@ class Window {
   	}
 
   	addSubmenu(subMenu_selector, HTMLcontent){
+      console.log("addSubmenu called  w HTMLcontent: ",HTMLcontent);
   		let oldHTML = $(`#${this.name} > .ContentWindowContent`).html();
 
   		$(`#${subMenu_selector}`).click(()=>{
+        console.log("click event happened");
   			$(`#${this.name} > .ContentWindowContent`).toggle("fold",200,()=>{
   				$(`#loader`).toggle("fade",150);
   				$(`#${this.name} > .ContentWindowContent`).load(HTMLcontent, ()=>{
