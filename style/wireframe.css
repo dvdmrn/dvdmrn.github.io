@@ -19,8 +19,8 @@
 .ContentWindowContent{
   /* main window content */
   overflow-y: scroll;
-  max-height: 600px;
-  margin-top: -20px;
+  max-height: 592.5px;
+  /*margin-top: -20px;*/
   margin-right: -30px;
   margin-bottom: -30px;
   padding-top: 20px;

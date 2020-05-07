@@ -42,6 +42,9 @@ var subMenus = {
 
     let research = new Window("research");
     let projects = new Window("projects","projects_submenu");
+    projects.addSubmenu("film_selector","submenu/film.html");
+
+
     let contact = new Window("contact");
 
     let pet = new Window("pet");
