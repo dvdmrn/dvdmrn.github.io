@@ -36,24 +36,48 @@ const slideDown = {
 
 
 class GenericWindow extends Component {
-  // TODO: constructor with state to manage top bar click
-  
-  render(){    
-	return(	<motion.div 
-					drag 
-					dragMomentum={false}
-					className="ContentWindow"
-					id={this.props.id}>
-				<div className="contentTopBar homeBar"> {this.props.title} </div>
-				<div className="ContentWindowContent">
-					{this.props.children}
-
-				</div>
-			</motion.div>
-		)
+  constructor(props){
+    super(props);
+    this.state = {draggable:false, mouseUp:false}
   }
+    
+  render(){return( 
 
-}
+        <motion.div 
+            drag={this.state.draggable}
+            dragMomentum={false}
+            className={this.props.visibile ? "ContentWindow" : "ContentWindow invisibile"}
+            id={this.props.id}
+            animate={this.props.show ? "visible":"hidden"}
+            variants={popupAnim}
+            >
+              <motion.div 
+              className="contentTopBar homeBar"
+              onMouseEnter={ e=>this.setState({draggable:true, mouseUp:false}) }  
+              onMouseLeave={ e=>this.state.mouseUp && this.setState({draggable:false, mouseUp:false}) }
+              // alternatively I can use:
+              // onHoverStart
+              // onHoverEnd
+
+              onMouseDown={e=>this.setState({draggable:true,mouseUp:false})}
+              onMouseUp={ e=>{this.setState({mouseUp:true})} }
+              >
+  
+              {this.props.title} 
+              </motion.div>
+              <div className="ContentWindowContent">
+                {this.props.content} 
+                {this.props.children}
+  
+              </div>
+        </motion.div>
+      )}
+  
+  }
+  
+
+
+
 
 export {GenericWindow, slideDown};
 

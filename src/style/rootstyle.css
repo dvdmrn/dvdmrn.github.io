@@ -220,6 +220,10 @@ h2{
   z-index: 9999;
 }
 
+
+.invisibile{
+  visibility: hidden;
+}
 /*ul {
   position: relative;
   list-style: none;
