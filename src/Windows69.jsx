@@ -25,12 +25,12 @@ const popupAnim = {
 
 const slideDown = {
   visible:{
-           height:null,           
+           height:null,
+
          },
 
   hidden:{
           height:0,
-
           }
 }
 
@@ -76,8 +76,58 @@ class GenericWindow extends Component {
   }
   
 
+class OpenWindow extends Component{
+  constructor(props){
+    super(props)
+    this.state = {showWindow:false, clicked:false}
+  }
+  render(){
+    return(
+    <span>
+      <span 
+        className="menuItem"
+        onClick={()=>{this.setState({clicked:true})}}
+        >
+        {this.props.text}
+      </span>
+
+      <GenericWindow 
+        visibile={this.state.clicked} 
+        show={(this.props.id === this.props.targetWindow)} 
+        id={this.props.id} 
+        content={this.props.content} 
+        title={this.props.title} 
+
+      />
+    </span>
+    )
+  }
+}
 
 
+class DropDown extends Component{
+  constructor(props){
+    super(props)
+    this.state = {clicked:false}
+  }
 
-export {GenericWindow, slideDown};
+  render(){
+    if((this.props.target === this.props.id) && !this.state.clicked){
+      this.setState({clicked:true})    
+    }
+    
+    return(
+      <motion.div
+        className={this.state.clicked ? "submenu" : "submenu invisibile"}
+        animate={(this.props.target === this.props.id) ? "visible":"hidden"}
+        variants={slideDown}
+      >
+        {this.props.children}
+      </motion.div>
+      )
+  }
+}
+
+
+export {GenericWindow, slideDown, OpenWindow, DropDown};
 
