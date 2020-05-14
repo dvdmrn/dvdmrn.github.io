@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+ <meta charset="utf-8"/>
+	<link rel='stylesheet' type="text/css" href="style/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="Windows69.js"></script>
+  <script src="Icon.js"></script>
+  <script src="Window.js"></script>
+  <script src="Popup.js"></script>
+
+  <script type="text/javascript">
+  	 $(document).on('ready', function(){
+        $("#accordion").accordion();
+    });
+  </script>
+</head>
+
+
+<body>
+	<div class="content">
+
+
+
+
+
+	<div id="loader"></div> 
+
+	<div id="LeftWrapper">
+
+		<div class="menu ui-widget-content" id="draggable">
+			<div class="topbar gradient"> menu </div>
+			<div id="menuItems">
+				<span class="menuItem" id="home_selector">+ home </span><p></p>
+				<span class="menuItem" id="about_selector">+ about </span><br>
+				<div id="about_submenu" class="submenu">
+				<span class="menuItem" id="edu">⤷ edu. </span><br>
+				<span class="menuItem" id="cv">⤷ CV </span><br>
+				<span class="menuItem" id="skills">⤷ skills </span><br>
+
+				</div><p></p>
+				<span class="menuItem" id="research_selector">+ research </span><p></p>
+				<span class="menuItem" id="projects_selector">+ projects </span><br>
+				<div id="projects_submenu" class="submenu">
+				<span class="menuItem" id="film_selector">⤷ film </span><br>
+				<span class="menuItem" id="photography_selector">⤷ photo </span><br>
+				<span class="menuItem" id="interactive_selector">⤷ 🤖 </span><br>
+				<span class="menuItem" id="photography_selector">⤷ comics </span><br>
+				<span class="menuItem" id="photography_selector">⤷ print </span><br>
+
+				</div><p></p>
+				<span class="menuItem" id="contact_selector">+ contact </span>
+			</div>
+		</div>
+
+		<div class="ContentWindow" id="home">
+			<!-- <h2 class="gradient">about</h2><p></p> -->
+			<div class="contentTopBar homeBar"> home </div>
+			<div class="ContentWindowContent">
+				<!-- <div class="gradient header">about</div><p></p> -->
+				<!-- <hr> -->
+				<span class="gradient"><b>Welcome!</b></span><p>
+				💡 TIP: Use panels to the left to navigate.
+
+			</div>
+		</div>
+
+
+		<div class="ContentWindow" id="about">
+			<!-- <h2 class="gradient">about</h2><p></p> -->
+			<div class="contentTopBar aboutBar"> about </div>
+			<!-- <div class="gradient header">about</div><p></p> -->
+			<!-- <hr> -->
+			<div class="ContentWindowContent">
+			
+				<img src="img/avi-pink.png" id="avi">
+				<span class="gradient"><b>David Marino</b></span><p>
+				{designer, researcher, .*er}<p>
+				Broadly speaking, I am a designer and researcher with a background in cognitive science. But I am also many other things. Here are a few:<p></p>
+
+				I'm currently a MSc student in the department of Electrical and Computer Engineering at McGill University's <a href="http://srl.mcgill.ca/">Shared Reality Lab</a>. My work focuses on multimodal natural language interfaces between intelligent agents.<p>
+				
+				I'm a video generalist, with expertise in cinematography, editing, directing, motion graphics, and producing. <p></p>
+
+
+				I make comics @ <a href="http://leftoversalad.com">leftoversalad</a> <p></p>
+
+				I am an affiliate member of <a href="https://languagesciences.ubc.ca/">UBC Language Sciences</a>, and student member of the <a href="https://www.cirmmt.org/">Center for Interdisciplinary Research on Music Media and Technology</a><p></p>
+
+				I use they/them pronouns.<p></p>
+			
+			</div>
+		</div>
+
+		<div class="ContentWindow" id="research">
+			<!-- <h2 class="gradient">about</h2><p></p> -->
+			<div class="contentTopBar researchBar"> research </div>
+			<div class="ContentWindowContent">
+				<!-- <div class="gradient header">about</div><p></p> -->
+				<!-- <hr> -->
+				My research spans the fields of HCI/HRI, AI and cognitive science. I'm broadly interested in designing for subsymbolic, emergent, or non-compositional aspects of Language. Such techniques can be used to offload the representational work required by an intelligent system, and create engaging user experiences (that may have otherwise been degraded using a system with over-engineered intelligence).<br>Some examples of past work includes using your voice as a basis to <a href="https://www.youtube.com/watch?v=IcUq9PZhN7w">control an emotionally expressive robot pet</a>, or using vibrations to enhance the intelligibility of speech in noise.<p></p>
+
+				<b>Research Interests</b>
+				<ul>
+
+				<li>Interactive alignment between natural and artificial social agents, specifically within communicative tasks</li>
+	            <li>Subsymbolic representation of natural language semantics/pragmatics.</li>
+	            <li>Multimodal communication</li>
+	            <li>Affective computing</li>
+	            <li>HCI/HRI</li>
+	            <li>narrative</li>
+
+	        	</ul>
+
+				<p></p>
+
+				<a href="https://scholar.google.com/citations?user=dLgup7MAAAAJ&hl=en" target="_blank">My publications</a>.<p></p>
+
+				<a href="">Here</a> are some of my favorite articles
+			</div>
+		</div>
+
+
+		<div class="ContentWindow" id="projects">
+			<div class="contentTopBar projectsBar"> projects </div>
+				<div class="ContentWindowContent">
+
+				<!-- <h2 class="gradient">about</h2><p></p> -->
+				<!-- <div class="gradient header">about</div><p></p> -->
+				<!-- <hr> -->
+				<p></p>
+				Wowee look at all these chickens.<p>
+
+
+
+			</div>
+		</div>
+
+		<div class="ContentWindow" id="contact">
+			<!-- <h2 class="gradient">about</h2><p></p> -->
+			<div class="contentTopBar contactBar"> contact </div>
+			<div class="ContentWindowContent">
+			<!-- <div class="gradient header">about</div><p></p> -->
+			<!-- <hr> -->
+			<p></p>
+			Feel free to get into touch or stalk me in the following venues:<p>
+				🦆 <b>Twitter:</b> <a href="https://twitter.com/david2vec">@david2vec</a><br>
+				🐙 <b>Github:</b><a href="http://github.com/dvdmrn/">@dvdmrn</a><br>
+				📧 <b>Email:</b> dgm {dot} marino {at} gmail.com // dmarino {at} cim.mcgill.ca<br>
+				🤝 <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/dvdmrn0/">david marino</a>
+		</div>
+	</div>
+
+	</div>
+
+
+
+
+			<div class="PetWindow" id="pet">
+			<!-- <h2 class="gradient">about</h2><p></p> -->
+			<div class="contentTopBar petBar"> virtual pet </div>
+			<div class="ContentWindowContent">
+			<!-- <div class="gradient header">about</div><p></p> -->
+			<!-- <hr> -->
+			<p></p><center>
+<pre>
+🥦           🥦
+
+        🥦
+
+
+   🦔
+</pre>
+			</center>
+		</div>
+</div>
+	
+
+
+
+
+
+<div class="spotlight">
+	<div class="spotlightContent">
+	Kekekeke 
+	</div>
+</div>
+
+
+</body>

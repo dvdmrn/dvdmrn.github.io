@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,500,600,700,800,900');
+
+:root {
+  --window-color:#363636;
+  --header-font:"Nunito";
+  /*--window-color:#775bff;*/
+  scrollbar-width: thin; 
+
+}
+
+::selection {
+  background: #775bff; /* WebKit/Blink Browsers */
+  color: #fEf;
+}
+::-moz-selection {
+  background: #60ffbc; /* Gecko Browsers */
+  color: #000;
+}
+
+/*::-webkit-scrollbar {
+  display: none;
+}
+*/
+
+.content::-webkit-scrollbar {
+  display:none;
+}
+
+
+.ContentWindowContent::-webkit-scrollbar {
+  display:block;
+  width:7px;
+  background-color: #fff;
+}
+
+.ContentWindowContent::-webkit-scrollbar-thumb {
+  background-color: #60ffbc ;
+}
+
+.window {
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 5px;
+  max-width: 200px;
+}
+
+body{
+  background-color: #fff;
+  margin: 0px;
+  overflow-x: hidden; /* Hide scrollbars */
+  overflow-y: hidden;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 20px;
+  color: var(--window-color);
+  /*scrollbar-width: none;*/
+
+}
+
+hr{
+  border: none;
+  border-top: dotted;
+}
+
+a{
+  color:hotpink;
+  text-decoration: none;
+}
+ /* unvisited link */
+a:link {
+  /*color: #fd75ff;*/
+  color: #0272ff;
+  font-weight: bold;
+
+}
+
+/* visited link */
+a:visited {
+  color: #02c3ff;
+
+}
+
+/* mouse over link */
+a:hover {
+  color: #fff;
+  background-color: #0272ff;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+} 
+
+
+
+h2{
+  font-family: 'Poiret One', cursive;
+  font-size: 32px; 
+}
+
+
+.gradient {
+
+  /*background: linear-gradient(-60deg, #81f7f7 20%, #ff98be 30%, #ff98be 70%, #81f7f7   80%);*/
+  background: linear-gradient(-60deg, #775bff 20%, #fd75ff 30%, #fd75ff 70%, #775bff  80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: textShine 7s ease-in-out infinite;
+}
+
+@keyframes textShine {
+  to {
+    background-position: 200%;
+  }
+}
+
+
+
+.header{
+  font-family: var(--header-font);
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.content {
+  position: fixed;
+  background-image: radial-gradient(#fdbdbd 8%,transparent 10%);
+  background-size: 15px 15px;
+  color: #222;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-color: #60ffbc #fff;
+  scrollbar-width: thin;
+
+  /*padding: 20px;*/
+}
+
+#LeftWrapper{
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+.indent{
+  margin-left: 2em;
+  margin-top: -2.1em;
+}
+
+.fullbutton{
+  /*background-color: #60ffbc;*/
+  display: block;
+  padding: 20px;
+  border-radius: 30px;
+  border: 1.5px dotted #333;
+  /*background-color: #eee;*/
+  overflow: hidden;
+}
+ 
+.fullbutton:hover{
+  background: linear-gradient(-60deg, #775bff 0%, #fd75ff 25%, #fd75ff 75%, #775bff  100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 800% auto;
+  
+  animation: textShine 7s ease-in-out infinite;
+
+  background-color: #fee;
+  }
+
+.projicon{
+  float:left;
+  object-fit: cover;
+  border-radius: 50%;
+  width:100px;
+  margin-right: 20px;
+
+}
+
+
+.quote{
+  border-left: 2px solid #ff6000;
+  padding-left: 15px;
+  background-color: #fff4d9;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+}
+
+.spotlight{
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+
+}
+
+.spotlightContent{
+  overflow: auto;
+  overflow-y: auto;
+  position: fixed;
+  background-color: rgba(0,0,0,1);
+  color: #ccc;
+  text-align: center;
+  padding-top: 1%;
+  top: 3.5%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  z-index: 9999;
+}
+
+/*ul {
+  position: relative;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1.2em;
+}
+ul li:before {
+  content: "⤷";
+  position: absolute;
+  left: 0;
+  margin-top: -0.1em;
+}*/

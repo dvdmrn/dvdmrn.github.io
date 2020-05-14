@@ -1,0 +1,40 @@
+/* VARS are kept in rootstyle.css */
+
+.menu{
+  background-color: #fff;
+  float:left;
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+}
+
+#menuItems{
+  padding: 30px;
+}
+
+.topbar{  
+  /*background-color: #775bff;*/
+  display: block;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  /*color: var(--window-color);*/
+  border-style: none none dotted none;
+  text-align: center;
+  font-weight: 800;
+  font-family: var(--header-font);
+  font-size: 20px;
+  /*box-sizing: border-box;*/
+  /*width: 100%;*/
+  /*margin: -30px;*/
+}
+
+.menuItem:hover{
+  color:hotpink;
+  cursor: cell;
+}
+
+.submenu{
+  margin-left: 10px;
+}

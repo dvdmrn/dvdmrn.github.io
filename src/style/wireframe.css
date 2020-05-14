@@ -1,0 +1,97 @@
+/* VARS defined in rootsyle.css */
+*{
+    box-sizing: border-box;
+
+}
+
+.ContentWindow{
+  /* main windows */
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  max-width:800px;
+  max-height: 600px;
+  margin-left: 200px;
+  background-color: #fff;
+  padding-top:0px;
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+  }
+
+/* main window content */
+.ContentWindowContent{
+  overflow-y: auto;
+  display: inline-block;
+  padding: 20px;
+}
+
+.contentTopBar{  
+  background-color: #775bff;
+  display: block;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+/*  margin-left: -30px;
+  margin-top: -30px;
+  margin-right: -30px;*/
+  color: #fff;
+  text-align: center;
+  font-weight: 800;
+  font-family: var(--header-font);
+  font-size: 20px;
+  /*box-sizing: border-box;*/
+  /*width: 100%;*/
+  /*margin: -30px;*/
+}
+
+
+/* pet */
+.PetWindow{
+  float:left; /* add this */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+
+  width:275px;
+  height:275px;
+  bottom:0;
+  right:0;
+  margin: 50px;
+  background-color: #fff;
+  /*padding-top:0px;
+  padding:30px;*/
+
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+  }
+
+#avi{
+  /* personal pic */
+  float:left;
+  max-width: 300px;
+  height: auto;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.GenericWindow{
+  float:left; /* add this */
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+
+  width:600px;
+  max-height:600px;
+  top:5%;
+  left:25%;
+  margin: 50px;
+  background-color: #fff;
+  /*padding-top:0px;
+  padding:30px;*/
+  border: 1px solid;
+  border-color: var(--window-color);
+  box-shadow: 10px 10px var(--window-color);
+}

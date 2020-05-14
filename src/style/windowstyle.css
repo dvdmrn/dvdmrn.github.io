@@ -1,0 +1,22 @@
+/* VARS are kept in rootstyle.css */
+
+
+
+.close{
+  background: #fff;
+  float: right;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: inline-block;
+  padding-bottom: 10px;
+  color: #775bff;
+  margin-right: -20px;
+  margin-top: -2px;
+}
+
+.close:hover{
+  background-color:hotpink;
+  color:#fff;
+  cursor: cell;
+}

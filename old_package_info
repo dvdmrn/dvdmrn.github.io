@@ -1,0 +1,7 @@
+old package
+
+    // "build": "react-scripts build",
+    (replaced webpack)
+
+new package
+	"build": "webpack --config webpack.config.js"
