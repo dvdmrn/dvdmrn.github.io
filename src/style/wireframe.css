@@ -6,17 +6,21 @@
 
 .ContentWindow{
   /* main windows */
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: fixed;
   max-width:800px;
   max-height: 600px;
-  margin-left: 200px;
+  margin-left: 250px;
+  margin-top: 30px;
   background-color: #fff;
   padding-top:0px;
   border: 1px solid;
   border-color: var(--window-color);
   box-shadow: 10px 10px var(--window-color);
+
+  left:0px;
+  top:0px;
   }
 
 /* main window content */

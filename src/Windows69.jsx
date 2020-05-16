@@ -5,21 +5,30 @@ import ReactDOM from 'react-dom';
 
 // variants ------
 const popupAnim = {
-  visible:{opacity:1,
+  visible:{
            scaleX:1,
            scaleY:1,
            transition:{
-            type: 'spring'
+            type: 'spring',
+            damping:14
            }},
 
-  hidden:{opacity:0,
+  hidden:{
           scaleX:0,
           scaleY:0,
-          transition:{
-            type: 'spring',
-            scaleX:{duration:1},
-            scaleY:{duration:0.4}
-          }}
+          ease:'anticipate',
+          }
+
+
+
+  // hidden:{
+  //         scaleX:0,
+  //         scaleY:0,
+  //         transition:{
+  //           type: 'spring',
+  //           scaleX:{duration:1},
+  //           scaleY:{duration:0.4}
+  //         }}
 }
 
 
@@ -65,11 +74,9 @@ class GenericWindow extends Component {
   
               {this.props.title} 
               </motion.div>
-              <div className="ContentWindowContent">
                 {this.props.content} 
                 {this.props.children}
   
-              </div>
         </motion.div>
       )}
   

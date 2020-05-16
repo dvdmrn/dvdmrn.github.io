@@ -61,7 +61,7 @@ class Menu extends Component{
               <W69.OpenWindow 
                 id="about"
                 text="+ about"
-                content={<Content.PooWindow/>}
+                content={<Content.About/>}
                 title="about"
                 targetWindow={this.state.targetWindow}
                 />
@@ -71,8 +71,6 @@ class Menu extends Component{
               target={this.state.targetDD}
               onClick={true}
             >
-            // edu. cv. skills
-            ⤷
             <div onClick={ e=>this.setState({targetWindow:"edu"}) }>
               <W69.OpenWindow 
                 id="edu"
@@ -82,8 +80,24 @@ class Menu extends Component{
                 targetWindow={this.state.targetWindow}
                 />
             </div>
-            <br></br>
-            ⤷aaaaiiieee<br></br>
+            <div onClick={ e=>this.setState({targetWindow:"cv"}) }>
+              <W69.OpenWindow 
+                id="cv"
+                text="⤷ cv"
+                content={<Content.About_Education/>}
+                title="cv"
+                targetWindow={this.state.targetWindow}
+                />
+            </div>
+            <div onClick={ e=>this.setState({targetWindow:"skills"}) }>
+              <W69.OpenWindow 
+                id="skills"
+                text="⤷ skills"
+                content={<Content.About_Skills/>}
+                title="skills"
+                targetWindow={this.state.targetWindow}
+                />
+            </div>          
             </W69.DropDown>
 
 
