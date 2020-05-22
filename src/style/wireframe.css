@@ -50,6 +50,9 @@
   /*margin: -30px;*/
 }
 
+.contentTopBar:hover{
+  cursor: move;
+}
 
 /* pet */
 .PetWindow{

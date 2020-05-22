@@ -10,7 +10,8 @@ const popupAnim = {
            scaleY:1,
            transition:{
             type: 'spring',
-            damping:14
+            damping:30,
+            stiffness:1000  
            }},
 
   hidden:{
@@ -18,8 +19,6 @@ const popupAnim = {
           scaleY:0,
           ease:'anticipate',
           }
-
-
 
   // hidden:{
   //         scaleX:0,
@@ -47,17 +46,24 @@ const slideDown = {
 class GenericWindow extends Component {
   constructor(props){
     super(props);
-    this.state = {draggable:false, mouseUp:false}
+    this.state = {draggable:false, mouseUp:false, closeIcon:false, closed:false}
   }
     
   render(){return( 
+
+      //   $(`.${id}Bar`).append(`<span class="close" id="${id}_close">x</span>`)
+      // $(`#${id}_close`).click(()=>{
+      // $(`#${this.name}` ).toggle("size", 200 );       
+
 
         <motion.div 
             drag={this.state.draggable}
             dragMomentum={false}
             className={this.props.visibile ? "ContentWindow" : "ContentWindow invisibile"}
             id={this.props.id}
-            animate={this.props.show ? "visible":"hidden"}
+            animate={(this.props.show) ? "visible":"hidden"}
+            // animate={(this.props.show && this.props.toggle) ? "visible":"hidden"}
+
             variants={popupAnim}
             >
               <motion.div 
@@ -72,7 +78,15 @@ class GenericWindow extends Component {
               onMouseUp={ e=>{this.setState({mouseUp:true})} }
               >
   
-              {this.props.title} 
+                {this.props.title}
+
+                <span 
+                  className="close" 
+                  id={this.props.id+"_close"}
+                  onClick={this.props.toggleFunction}
+                >x</span>
+
+
               </motion.div>
                 {this.props.content} 
                 {this.props.children}
@@ -83,27 +97,47 @@ class GenericWindow extends Component {
   }
   
 
+// class OpenWindowForever extends Component{
+//   constructor(props){
+//     super(props)
+//     this.state = {showWindow:false, clicked:false}
+//   }
+
+//   toggleWindow(){
+//     this.setState({showWindow:!this.state.showWindow});
+//   }
+// }
+
+
 class OpenWindow extends Component{
   constructor(props){
     super(props)
     this.state = {showWindow:false, clicked:false}
   }
+
+  toggleWindow(){
+    this.setState({showWindow:!this.state.showWindow});
+  }
+
   render(){
     return(
     <span>
       <span 
         className="menuItem"
-        onClick={()=>{this.setState({clicked:true})}}
+        onClick={()=>{this.toggleWindow(); this.setState({clicked:true, showWindow:true})}}
         >
         {this.props.text}
       </span>
 
       <GenericWindow 
-        visibile={this.state.clicked} 
-        show={(this.props.id === this.props.targetWindow)} 
+        visibile={this.state.clicked}
+        show={(this.props.id === this.props.targetWindow) && this.state.showWindow} 
+        toggle={this.state.showWindow}
+
+        toggleFunction={this.toggleWindow.bind(this)}
         id={this.props.id} 
         content={this.props.content} 
-        title={this.props.title} 
+        title={this.props.title}
 
       />
     </span>

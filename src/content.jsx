@@ -1,6 +1,10 @@
 import React from 'react';
 import Emoji from './helpers.jsx';
-import avi from './img/avi-pink.png'
+import avi from './img/avi-pink.png';
+import projIcon from './img/projicon.png';
+
+// import ProjImages from './projectimages.jsx';
+
 
 const Welcome = ()=>{
   return(
@@ -18,6 +22,32 @@ const PooWindow = ()=>{
           <div className="ContentWindowContent">
           You've opened the poo window
           </div>
+  )
+}
+
+const Research = ()=>{
+  return(
+        <div className="ContentWindowContent">
+          My research spans the fields of HCI/HRI, AI and cognitive science. I'm broadly interested in designing for subsymbolic, emergent, or non-compositional aspects of Language. Such techniques can be used to offload the representational work required by an intelligent system, and create engaging user experiences (that may have otherwise been degraded using a system with over-engineered intelligence).<br/>Some examples of past work includes using your voice as a basis to <a href="https://www.youtube.com/watch?v=IcUq9PZhN7w">control an emotionally expressive robot pet</a>, or using vibrations to enhance the intelligibility of speech in noise.<p></p>
+  
+            <b>Research Interests</b>
+            <ul>
+  
+              <li>Interactive alignment between natural and artificial social agents, specifically within communicative tasks</li>
+              <li>Subsymbolic representation of natural language semantics/pragmatics.</li>
+              <li>Multimodal communication</li>
+              <li>Affective computing</li>
+              <li>HCI/HRI</li>
+              <li>narrative</li>
+  
+            </ul>
+  
+            <p></p>
+  
+            <a href="https://scholar.google.com/citations?user=dLgup7MAAAAJ&hl=en" target="_blank">My publications</a>.<p></p>
+  
+          <a href="" target="_blank">Here</a> are some of my favorite articles
+        </div>
   )
 }
 
@@ -132,4 +162,134 @@ const About_Skills = ()=>{
 }
 
 
-export {Welcome, PooWindow, About_Education, About, About_Skills}
+const Projects = () =>{
+  return(
+      <div class="ContentWindowContent">
+          Wowee look at all these chickens.<p></p>
+      </div>
+    )
+}
+
+const Projects_Film = () =>{
+  return(
+      <div class="ContentWindowContent">
+        <span class="gradient"><b>film</b></span><p></p>
+
+        I have expertise in a broad set of film crafts, including <b>directing</b>, <b>editing</b>, <b>cinematography</b>, <b>motion graphics</b>, and <b>producing</b>. Some of my clients include: <b>The Globe and Mail</b>, <b>Coast Capital Savings</b>, <b>BC Bioenergy Network</b>, and many more. I know how to carry a film through pre-production, production, post, and delivery. Below is a curated set of examples of past work.
+        
+        <hr/>
+        <b>Demo Reel</b><br/>
+        <i>My demo reel is general in nature and shows examples of past work in directing, cinematography, motion graphics, and editing</i><p></p>
+        <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/JKNi4sijfgI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        <p></p>
+        
+        <hr/>
+        <b>Director of Photography</b><br/>
+        <i>Advertisement<br/>
+        Client: <a href="https://filmora.wondershare.com/">Wondershare Filmora</a></i><p></p>
+        <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/qlSJ1vJ66iI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        <p/>
+        
+        <hr/>
+        <p></p>
+        <b>Director, writer</b><br/>
+        <i>Skit<br/>
+        Magazine: <a href="https://www.facebook.com/SyrupTrap/">The Syrup Trap</a></i><p></p>
+        <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/WY8FivM1gMg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        
+        <hr/>
+        <p></p>
+        <b>Director, VFX</b><br/>
+        <i>Music video<br/>
+        Band: <a href="https://www.youtube.com/watch?v=ermbZmipxIs">April Fools Childrenhood</a></i><p></p>
+        <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ermbZmipxIs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        
+        <hr/>
+        <p></p>
+        <b>Motion graphics</b><br/>
+        <i>A web promotion for an augmented reality art exhibition called "We Were Hoping You'd Buy It". Spelling mistakes are intensiona;l.</i><p></p>
+        <center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-rkujE-pwMY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        <p></p>
+
+      </div>
+    )
+}
+
+const Projects_Interactive = ()=>{
+
+return(
+  <div class="ContentWindowContent">
+
+
+    <p>
+    <span class="gradient"><b>interactive</b></span><p></p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>WhatsHap</b><br/>
+      A messaging app with haptic phonemes 
+    </div>
+
+    </p>
+
+    <p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>Voodle</b><br/>
+    Vocal doodling to sketch affective robot motion
+    </div>
+    </p>
+
+    <p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>Haptic Speech Enhancement</b><br/>
+    Using vibrations to enhance the intelligibility of speech in noise
+    </div>
+    </p>
+
+    <p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>Corpus</b><br/>
+    Rhythm based body horror game
+    </div>
+    </p>
+
+    <p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>Co-op Ride Hailing</b><br/>
+    A feasibility assessment for a cooperative ride hailing model in Vancouver.
+    </div>
+    </p>
+
+    <p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>Single In Your Area</b><br/>
+    Tinder at the end of the world
+    </div>
+    </p>
+
+    <p>
+    <div class="fullbutton" id="ARt_selector">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>We Were Hoping You'd Buy It</b><br/>
+    Augmented Reality art show about Augmented Reality art shows UPDATED 2
+    </div>
+    </p>
+
+    <p>
+    <div class="fullbutton">
+    <img src={projIcon} alt="project icon" class="projicon"/> <b>The Syrup Trap</b><br/>
+    Canadian humor magazine
+    </div>
+    </p>
+  </div>
+  )
+}
+
+export {Welcome, PooWindow, Research, About_Education, About, About_Skills, Projects, Projects_Film, Projects_Interactive}
