@@ -1,4 +1,4 @@
-class Icon {
+Fclass Icon {
 
 
 	constructor(target,imgPath,name, windowPointer){

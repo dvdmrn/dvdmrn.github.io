@@ -26,6 +26,10 @@
 }
 */
 
+img{
+  pointer-events: none;
+}
+
 .content::-webkit-scrollbar {
   display:none;
 }
@@ -174,6 +178,9 @@ h2{
   animation: textShine 7s ease-in-out infinite;
 
   background-color: #fee;
+
+  cursor: cell;
+
   }
 
 .projicon{

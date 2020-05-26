@@ -18,10 +18,8 @@
   border: 1px solid;
   border-color: var(--window-color);
   box-shadow: 10px 10px var(--window-color);
-
-  left:0px;
-  top:0px;
   }
+
 
 /* main window content */
 .ContentWindowContent{
@@ -55,20 +53,19 @@
 }
 
 /* pet */
-.PetWindow{
-  float:left; /* add this */
-  position: fixed;
-  display: flex;
-  flex-direction: column;
+#PetWindow{
 
   width:275px;
   height:275px;
+  float:left; 
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-top:500px;
   bottom:0;
   right:0;
   margin: 50px;
   background-color: #fff;
-  /*padding-top:0px;
-  padding:30px;*/
 
   border: 1px solid;
   border-color: var(--window-color);

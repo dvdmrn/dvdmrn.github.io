@@ -60,6 +60,7 @@ class GenericWindow extends Component {
             drag={this.state.draggable}
             dragMomentum={false}
             className={this.props.visibile ? "ContentWindow" : "ContentWindow invisibile"}
+            style={this.props.overrideStyle}
             id={this.props.id}
             animate={(this.props.show) ? "visible":"hidden"}
             // animate={(this.props.show && this.props.toggle) ? "visible":"hidden"}
@@ -97,16 +98,40 @@ class GenericWindow extends Component {
   }
   
 
-// class OpenWindowForever extends Component{
-//   constructor(props){
-//     super(props)
-//     this.state = {showWindow:false, clicked:false}
-//   }
 
-//   toggleWindow(){
-//     this.setState({showWindow:!this.state.showWindow});
-//   }
-// }
+class OpenWindowForever extends Component{
+  constructor(props){
+    super(props)
+    this.state = {showWindow:false, clicked:false}
+  }
+
+  toggleWindow(){
+    this.setState({showWindow:!this.state.showWindow});
+  }
+  render(){
+    return(
+      <span>
+        <div 
+          className="link"
+          onClick={()=>{this.toggleWindow(); this.setState({clicked:true, showWindow:true})}}
+          >
+          {this.props.children}
+        </div>
+            <GenericWindow 
+              visibile={this.state.clicked}
+              show={this.state.showWindow} 
+              toggle={this.state.showWindow}
+
+              toggleFunction={this.toggleWindow.bind(this)}
+              id={this.props.id} 
+              content={this.props.content} 
+              title={this.props.title}
+              overrideStyle={this.props.overrideStyle}
+              />
+      </span>
+      )
+  }
+}
 
 
 class OpenWindow extends Component{
@@ -134,6 +159,7 @@ class OpenWindow extends Component{
         show={(this.props.id === this.props.targetWindow) && this.state.showWindow} 
         toggle={this.state.showWindow}
 
+        overrideStyle={this.props.overrideStyle}
         toggleFunction={this.toggleWindow.bind(this)}
         id={this.props.id} 
         content={this.props.content} 
@@ -170,5 +196,63 @@ class DropDown extends Component{
 }
 
 
-export {GenericWindow, slideDown, OpenWindow, DropDown};
+class Icon extends Component{
+  constructor(props){
+    super(props)
+    this.doubleClick.bind(this);
+    this.state = {doubleClick:false,
+                  open:false, 
+                  opened:false}
+  }
+
+  doubleClick(){
+    if(this.state.doubleClick){
+      console.log("YES!")
+      this.setState({doubleClick:false, open:true, opened:true})
+    }
+    else{
+      this.setState({doubleClick:true})
+      setTimeout(()=>{this.setState({doubleClick:false})},1000);
+
+    }
+  }
+
+  toggleWindow(){
+    this.setState({open:!this.state.open});
+  }
+  render(){
+    return(
+      <div>
+        <motion.div
+          className="icon"
+          drag={true}
+          dragMomentum={false}
+          onClick={()=>this.doubleClick()}
+          id={this.props.id}
+        > 
+            <img src={this.props.image}/><br/>
+            <span>{this.props.name}</span>
+
+        </motion.div>
+
+        <GenericWindow 
+                visibile={this.state.opened}
+                show={this.state.open} 
+                toggle={this.state.open}
+
+                toggleFunction={this.toggleWindow.bind(this)}
+                id={this.props.windowId} 
+                content={this.props.content} 
+                title={this.props.title}
+                overrideStyle={this.props.overrideStyle}
+        />
+      </div>
+      )
+
+  }
+}
+
+
+
+export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon};
 

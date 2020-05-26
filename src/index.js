@@ -12,7 +12,7 @@ import './style/style.css';
 
 import * as W69 from './Windows69.jsx';
 import * as Content from './content.jsx';
-
+import * as Pet from './Pet.jsx'
 
 
 
@@ -41,6 +41,7 @@ class Menu extends Component{
                 content={<Content.Welcome/>}
                 title="home"
                 targetWindow={this.state.targetWindow}
+                overrideStyle={{top:0,left:0}}
                 />
             </div>
             <p>
@@ -52,6 +53,8 @@ class Menu extends Component{
                 content={<Content.PooWindow/>}
                 title="poo window"
                 targetWindow={this.state.targetWindow}
+                overrideStyle={{top:0,left:0}}
+                
                 />
             </div>
 
@@ -64,6 +67,8 @@ class Menu extends Component{
                 content={<Content.About/>}
                 title="about"
                 targetWindow={this.state.targetWindow}
+                overrideStyle={{top:0,left:0}}
+
                 />
             </div>
             <W69.DropDown
@@ -77,6 +82,7 @@ class Menu extends Component{
                     content={<Content.About_Education/>}
                     title="education"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
                     />
                 </div>
                 <div onClick={ e=>this.setState({targetWindow:"cv"}) }>
@@ -86,6 +92,8 @@ class Menu extends Component{
                     content={<Content.About_Education/>}
                     title="cv"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+
                     />
                 </div>
                 <div onClick={ e=>this.setState({targetWindow:"skills"}) }>
@@ -95,6 +103,7 @@ class Menu extends Component{
                     content={<Content.About_Skills/>}
                     title="skills"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
                     />
                 </div>          
             </W69.DropDown>
@@ -106,6 +115,8 @@ class Menu extends Component{
                 content={<Content.Research/>}
                 title="research"
                 targetWindow={this.state.targetWindow}
+                overrideStyle={{top:0,left:0}}
+
                 />
             </div>
 
@@ -118,6 +129,8 @@ class Menu extends Component{
                 content={<Content.Projects/>}
                 title="projects"
                 targetWindow={this.state.targetWindow}
+                overrideStyle={{top:0,left:0}}
+
                 />
             </div>
 
@@ -132,6 +145,7 @@ class Menu extends Component{
                     content={<Content.Projects_Film/>}
                     title="film"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
                     />
               </div> 
 
@@ -142,6 +156,8 @@ class Menu extends Component{
                     content={<Content.PooWindow/>}
                     title="photos"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+
                     />
               </div>
 
@@ -152,6 +168,8 @@ class Menu extends Component{
                     content={<Content.Projects_Interactive/>}
                     title="interactive"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+
                     />
               </div>              
 
@@ -162,6 +180,8 @@ class Menu extends Component{
                     content={<Content.PooWindow/>}
                     title="comics"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+
                     />
               </div>
 
@@ -172,6 +192,8 @@ class Menu extends Component{
                     content={<Content.PooWindow/>}
                     title="print"
                     targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+
                     />
               </div>
 
@@ -183,6 +205,23 @@ class Menu extends Component{
   }
 }
 
+class Desktop extends Component{
+  // ...
+  render(){
+    return(
+      <W69.Icon
+        image={require('./img/bonzi.png')}
+        name="pet.exe"
+        id="petIcon"
+
+        windowId="PetWindow" 
+        content={<Pet.Pet/>}
+        title="virtual pet"
+        />
+      )
+  }
+}
+
 
 class App extends Component{
 
@@ -191,6 +230,7 @@ class App extends Component{
     return (
 
       <div className="content">
+        <Desktop/>
         <div id="LeftWrapper">
           <Menu/>
 
