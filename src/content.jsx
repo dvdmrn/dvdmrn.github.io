@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{Component} from 'react';
+
 import Emoji from './helpers.jsx';
 import avi from './img/avi-pink.png';
 import projIcon from './img/projicon.png';
@@ -224,77 +225,108 @@ const Projects_Film = () =>{
     )
 }
 
-const Projects_Interactive = ()=>{
+class Projects_Interactive extends Component {
+constructor(props){
+  super(props);
+  this.state = {currentWindow:null};
+}
 
-return(
-  <div className="ContentWindowContent">
+  windowClosed = () => {
+    console.log("window closed called!")
+    this.setState({currentWindow:null})
+  };
 
 
-    <p/>
-    <W69.OpenWindowForever
-      id="whatshap"
-      content={<WhatsHap/>}
-      title="WhatsHap"
-      overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
-    >
-      <span className="gradient"><b>interactive</b></span><p></p>
+  handleSetWindow = (win) => {
+    console.log("hello")
+    this.setState({currentWindow:win})
+  };
+
+render(){
+  return(
+    <div className="ContentWindowContent">
+
+
+      <p/>
+      <W69.OpenWindowForever
+        id="whatshap"
+        content={<WhatsHap/>}
+        title="WhatsHap"
+        overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+      >
+        <span className="gradient"><b>interactive</b></span><p></p>
+        <div className="fullbutton">
+        <img src={require('./img/whatshapicon.png')} alt="project icon" className="projicon"/> <b>WhatsHap</b><br/>
+          A messaging app with haptic phonemes 
+        </div>
+      </W69.OpenWindowForever>
+
+
+      <p/>
+      <W69.OpenWindowForever
+        id="voodle"
+        content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
+        title="Voodle"
+        overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
+        
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+
+      >
+        <div className="fullbutton">
+        <img src={require('./img/voodleIcon.png')} alt="project icon" className="projicon"/> <b>Voodle</b><br/>
+        Vocal doodling to sketch affective robot motion
+        </div>
+      </W69.OpenWindowForever>
+
+      <p/>
+       <W69.OpenWindowForever
+        id="HapticSpeechEnhancement"
+        content={<HapticSpeechEnhancement/>}
+        title="Haptic Speech Enhancement"
+        overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
+      >
+        <div className="fullbutton">
+        <img src={projIcon} alt="project icon" className="projicon"/> <b>Haptic Speech Enhancement</b><br/>
+        Using vibrations to enhance the intelligibility of speech in noise
+        </div>
+      </W69.OpenWindowForever>
+
+      <p/>
       <div className="fullbutton">
-      <img src={require('./img/whatshapicon.png')} alt="project icon" className="projicon"/> <b>WhatsHap</b><br/>
-        A messaging app with haptic phonemes 
+      <img src={projIcon} alt="project icon" className="projicon"/> <b>Corpus</b><br/>
+      Rhythm based body horror game
       </div>
-    </W69.OpenWindowForever>
 
-
-    <p/>
-    <W69.OpenWindowForever
-      id="voodle"
-      content={<Voodle/>}
-      title="Voodle"
-      overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
-    >
+      <p/>
       <div className="fullbutton">
-      <img src={require('./img/voodleIcon.png')} alt="project icon" className="projicon"/> <b>Voodle</b><br/>
-      Vocal doodling to sketch affective robot motion
+      <img src={projIcon} alt="project icon" className="projicon"/> <b>Co-op Ride Hailing</b><br/>
+      A feasibility assessment for a cooperative ride hailing model in Vancouver.
       </div>
-    </W69.OpenWindowForever>
 
-    <p/>
-    <div className="fullbutton">
-    <img src={projIcon} alt="project icon" className="projicon"/> <b>Haptic Speech Enhancement</b><br/>
-    Using vibrations to enhance the intelligibility of speech in noise
-    </div>
+      <p/>
+      <div className="fullbutton">
+      <img src={projIcon} alt="project icon" className="projicon"/> <b>Single In Your Area</b><br/>
+      Tinder at the end of the world
+      </div>
 
-    <p/>
-    <div className="fullbutton">
-    <img src={projIcon} alt="project icon" className="projicon"/> <b>Corpus</b><br/>
-    Rhythm based body horror game
-    </div>
+      <p/>
+      <div className="fullbutton" id="ARt_selector">
+      <img src={projIcon} alt="project icon" className="projicon"/> <b>We Were Hoping You'd Buy It</b><br/>
+      Augmented Reality art show about Augmented Reality art shows UPDATED 2
+      </div>
 
-    <p/>
-    <div className="fullbutton">
-    <img src={projIcon} alt="project icon" className="projicon"/> <b>Co-op Ride Hailing</b><br/>
-    A feasibility assessment for a cooperative ride hailing model in Vancouver.
+      <p/>
+      <div className="fullbutton">
+      <img src={projIcon} alt="project icon" className="projicon"/> <b>The Syrup Trap</b><br/>
+      Canadian humor magazine
+      </div>
     </div>
+    )
 
-    <p/>
-    <div className="fullbutton">
-    <img src={projIcon} alt="project icon" className="projicon"/> <b>Single In Your Area</b><br/>
-    Tinder at the end of the world
-    </div>
-
-    <p/>
-    <div className="fullbutton" id="ARt_selector">
-    <img src={projIcon} alt="project icon" className="projicon"/> <b>We Were Hoping You'd Buy It</b><br/>
-    Augmented Reality art show about Augmented Reality art shows UPDATED 2
-    </div>
-
-    <p/>
-    <div className="fullbutton">
-    <img src={projIcon} alt="project icon" className="projicon"/> <b>The Syrup Trap</b><br/>
-    Canadian humor magazine
-    </div>
-  </div>
-  )
+  }
 }
 
 
@@ -314,22 +346,69 @@ function WhatsHap(){
     )
 }
 
-function Voodle(props){
-  return(
-      <div className="ContentWindowContent">
-        <b>Voodle</b>
-        <p>
-        <center>
-        <ReactPlayer url="https://www.youtube.com/watch?v=IcUq9PZhN7w" light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" playing={props.playVideo} controls="true"/>
-        </center>
-        </p>
-        <p>
-          Voodle, or "vocal doodling", lets users sketch robot motion with their voice. At the Sensory Perception and Interaction Lab, we were interested in generating many emotional behaviours for simple 1-DOF robots. Voice naturally encodes emotional quality in the speech signal, so we thought, what's a better way to do this than simply using physical aspects of the speech signal to drive robot motion? Instead of having to manually puppet or pre-program symbolic emotional states <i>a priori</i>, we can use affective dimensions of speech as a basis to generate the behaviours on the fly.
-        </p>
+class Voodle extends Component{
+  constructor(props){
+    super(props)
+  }
 
-      </div>
-    )
+  render(){
+    return(
+        <div className="ContentWindowContent">
+          <b>Voodle</b>
+          <p>
+          <center>
+          <ReactPlayer class="video" url="https://www.youtube.com/watch?v=IcUq9PZhN7w" light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" controls="true" playing={this.props.playable}/>
+          </center>
+          </p>
+          <p>
+            Voodle, or "vocal doodling", lets users sketch robot motion with their voice. At the Sensory Perception and Interaction Lab, we were interested in generating many emotional behaviours for simple 1-DOF robots. Voice naturally encodes emotional quality in the speech signal, so we thought, what's a better way to do this than simply using physical aspects of the speech signal to drive robot motion? Instead of having to manually puppet or pre-program symbolic emotional states <i>a priori</i>, we can use affective dimensions of speech as a basis to generate the behaviours on the fly.
+          </p>
+          <p>
+            This project was presented at <a href="https://dis.acm.org" target="_blank" rel="noopener noreferrer">Designing Interactive Systems</a> 2017 and <a href="https://dl.acm.org/doi/10.1145/3064663.3064668" target="_blank" rel="noopener">published in its proceedings</a>.
+          </p>
+
+        </div>
+      )
+
+  }
 }
 
+
+function HapticSpeechEnhancement(){
+  return(
+    <div className="ContentWindowContent">
+    <b>Haptic feedback for enhanced speech intelligibility</b><p/>
+    <img src={require("./img/catgirl.jpg")} style={{width:'100%'}} loading="lazy"/><br/>
+    <center><i>pictured: me wearing the vibrotactile device</i></center>
+    <p>
+    I lead a research project investigating the effect of haptic feedback on speech intelligibility--in other words: can you hear someone better if you their voice through your skin?
+    </p>
+    <p>
+    When speaking, you are continuously subject to natural vibrations on your throat from the vocal folds during voicing. We simulated these vibrations through a single channel vibrotactile actuator, and tested its efficacy through manipulating different vibration styles and placements on the body. We found a 9% enhancement in intelligibility in terms of word recognition. My role on this project was managing and mentoring a team of collaborators, and leading the study.
+    </p>
+
+    <p>
+    This project was presented in Acoustics Week in Canada, and published in Canadian Acoustics and the Journal of the Acoustical Society of America.
+    </p>
+    <p>
+    <hr/>
+    <b>posters</b>
+    <ul>
+    <li><a href="https://drive.google.com/open?id=11O8d92ozU-SmN0oHXqs7kPfHyrY3TcZF" target="_blank">singe channel voicing enhancement</a></li>
+    <li><a href="https://drive.google.com/open?id=1K4lrzAcdAB_Al5OimSKbDckkeDt5W2M4" target="_blank">temporal offset for multimodal integration</a></li>
+    </ul>
+    </p>
+
+    <p>
+    <hr/>
+    <b>coverage</b>
+      <ul>
+        <li><a href="https://languagesciences.ubc.ca/news-events/announcement-research-news-story-student-news/mar-4-2019-good-vibrations-how-vibrating" target="_blank">UBC language sciences report</a></li>
+      </ul>
+    </p>
+
+    </div>
+  )
+}
 
 export {Welcome, PooWindow, Research, About_Education, About, About_Skills, Projects, Projects_Film, Projects_Interactive}

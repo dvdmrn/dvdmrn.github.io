@@ -84,7 +84,12 @@ class GenericWindow extends Component {
                 <span 
                   className="close" 
                   id={this.props.id+"_close"}
-                  onClick={this.props.toggleFunction}
+                  onClick={()=>{
+                    this.props.toggleFunction();
+                    if(this.props.onWindowClose){
+                      this.props.onWindowClose();
+                    }
+                  }}
                 >x</span>
 
 
@@ -108,13 +113,19 @@ class OpenWindowForever extends Component{
   toggleWindow(){
     this.setState({showWindow:!this.state.showWindow});
   }
+  
   render(){
     return(
       <span>
         <div 
           className="link"
-          onClick={()=>{this.toggleWindow(); this.setState({clicked:true, showWindow:true})}}
-          >
+          onClick={()=>{
+            this.toggleWindow(); 
+            this.setState({clicked:true, showWindow:true});
+            if(this.props.onSetWindow){
+              this.props.onSetWindow(this.props.id)
+            }
+          }}>
           {this.props.children}
         </div>
             <GenericWindow 
@@ -127,6 +138,7 @@ class OpenWindowForever extends Component{
               content={this.props.content} 
               title={this.props.title}
               overrideStyle={this.props.overrideStyle}
+              onWindowClose={this.props.onWindowClose}
               />
       </span>
       )
