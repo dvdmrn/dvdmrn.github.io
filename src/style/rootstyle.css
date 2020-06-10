@@ -243,3 +243,11 @@ ul li:before {
   left: 0;
   margin-top: -0.1em;
 }*/
+
+
+.subWindow{
+  left:0;
+  top:0;
+  margin-left:150;
+  margin-top:50;
+}

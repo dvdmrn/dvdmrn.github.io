@@ -28,6 +28,19 @@ const PooWindow = ()=>{
   )
 }
 
+
+const Contact = ()=>{
+  return(
+          <div className="ContentWindowContent">
+            Feel free to get into touch or stalk me in the following venues:<p/>
+            <Emoji symbol="🦆" label="twitter bird"/> <b>Twitter:</b> <a href="https://twitter.com/david2vec" target="_blank">@david2vec</a><br/>
+            <Emoji symbol="🐙" label="octopus"/> <b>Github:</b><a href="http://github.com/dvdmrn/" target="_blank" rel="noopener noreferrer">@dvdmrn</a><br/>
+            <Emoji symbol="📧" label="mail"/> <b>Email:</b> dgm [dot] marino [at] gmail.com // dmarino [at] cim.mcgill.ca<br/>
+            <Emoji symbol="🤝" label="very professional business hand shake"/> <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/dvdgvnnmrn/" target="_blank" rel="noopener noreferrer">david marino</a>
+          </div>
+  )
+}
+
 const Research = ()=>{
   return(
         <div className="ContentWindowContent">
@@ -59,7 +72,7 @@ const About = ()=>{
   return(
     <div className="ContentWindowContent">
     <img src={avi} id="avi" alt="it me"/>
-          <span className="gradient"><b>David Marino</b></span><p></p>
+          <span className="gradient sectionHeader"><b>David Marino</b></span><p></p>
           {"{designer, researcher, .*er}"}<p></p>
           Broadly speaking, I am a designer and researcher with a background in cognitive science. But I am also many other things. Here are a few:<p></p>
 
@@ -165,7 +178,8 @@ const About_Skills = ()=>{
 const Projects = () =>{
   return(
       <div className="ContentWindowContent">
-          Wowee look at all these chickens.<p></p>
+          Projects are organized by media type.<br/>
+          Select a project from the dropdown <Emoji symbol="✨" label="sparkle"/><p></p>
       </div>
     )
 }
@@ -252,7 +266,7 @@ render(){
         id="whatshap"
         content={<WhatsHap/>}
         title="WhatsHap"
-        overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
+        additionalClasses="subWindow"
         onSetWindow={this.handleSetWindow}
         onWindowClose={this.windowClosed}
       >
@@ -268,8 +282,9 @@ render(){
       <W69.OpenWindowForever
         id="voodle"
         content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
+
         title="Voodle"
-        overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
+        additionalClasses="subWindow"
         
         onSetWindow={this.handleSetWindow}
         onWindowClose={this.windowClosed}
@@ -286,7 +301,7 @@ render(){
         id="HapticSpeechEnhancement"
         content={<HapticSpeechEnhancement/>}
         title="Haptic Speech Enhancement"
-        overrideStyle={{left:0,top:0,marginLeft:150,marginTop:50}}
+        additionalClasses="subWindow"
       >
         <div className="fullbutton">
         <img src={projIcon} alt="project icon" className="projicon"/> <b>Haptic Speech Enhancement</b><br/>
@@ -295,11 +310,18 @@ render(){
       </W69.OpenWindowForever>
 
       <p/>
-      <div className="fullbutton">
-      <img src={projIcon} alt="project icon" className="projicon"/> <b>Corpus</b><br/>
-      Rhythm based body horror game
-      </div>
 
+      <W69.OpenWindowForever
+        id="Corpus"
+        content={<Corpus/>}
+        title="Corpus"
+        additionalClasses="subWindow"
+      >
+        <div className="fullbutton">
+        <img src={require("./img/corpus.png")} alt="project icon" className="projicon" loading="lazy"/> <b>Corpus</b><br/>
+        Rhythm based body horror game
+        </div>
+      </W69.OpenWindowForever>
       <p/>
       <div className="fullbutton">
       <img src={projIcon} alt="project icon" className="projicon"/> <b>Co-op Ride Hailing</b><br/>
@@ -313,11 +335,18 @@ render(){
       </div>
 
       <p/>
+
+       <W69.OpenWindowForever
+        id="WeWereHopingYoudBuyIt"
+        content={<WeWereHopingYoudBuyIt/>}
+        title="We Were Hoping You'd Buy It"
+        additionalClasses="subWindow"
+      >
       <div className="fullbutton" id="ARt_selector">
       <img src={projIcon} alt="project icon" className="projicon"/> <b>We Were Hoping You'd Buy It</b><br/>
       Augmented Reality art show about Augmented Reality art shows UPDATED 2
       </div>
-
+      </W69.OpenWindowForever>
       <p/>
       <div className="fullbutton">
       <img src={projIcon} alt="project icon" className="projicon"/> <b>The Syrup Trap</b><br/>
@@ -357,7 +386,14 @@ class Voodle extends Component{
           <b>Voodle</b>
           <p>
           <center>
-          <ReactPlayer class="video" url="https://www.youtube.com/watch?v=IcUq9PZhN7w" light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" controls="true" playing={this.props.playable}/>
+          <ReactPlayer 
+            className="video videoContent"
+
+            url="https://www.youtube.com/watch?v=IcUq9PZhN7w" 
+            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            controls="true" 
+            playing={this.props.playable}
+            />
           </center>
           </p>
           <p>
@@ -411,4 +447,47 @@ function HapticSpeechEnhancement(){
   )
 }
 
-export {Welcome, PooWindow, Research, About_Education, About, About_Skills, Projects, Projects_Film, Projects_Interactive}
+function WeWereHopingYoudBuyIt(){
+  return(
+    <div className="ContentWindowContent">
+    <b>We were hoping you'd buy it</b><p/>
+    Augmented Reality Art Show
+    <p>
+    I created two augmented reality art installations as a part of an art show: We Were Hoping You'd Buy it at Oak St. Studios.
+    </p>
+    <W69.SimpleDropDown
+    linkText="view curatorial statement"
+    >
+    <div className="quote">
+    <p>
+    “Very little academia is currently available on the growing relationship between Augmented Reality (AR) and art. Most of the existing written content on the matter either reports the recent MOMAR take over of the MOMA exhibition, or the ways in which museums, art institutions, or festivals, use the technology to attract bigger audiences. This scholastic desert is demonstrative of a few things. First, that the interaction between new technology and art making is still very much in its infancy. Second, that new technology in its deployment in art can not exceed its formal scheme. Finally, that its perceived usefulness relies merely on user engagement and added economical value. Eyemole's humorous take on the current state of affairs between AR and art is a reflection of their frustration with it. It is also a critical self-appraisal, as they actively operate in this structure through their commissioned work.
+    </p>
+    <p>
+    What is the value of valueless art? Eyemole wants you to buy it both literally and figuratively. In the piece wARter, the co-operative outright states that "nothing happens," yet the expectation is that the "user/viewer" will find some value in this unique way to engage with the image on the wall. Much like the museums are now more concerned with user/audience engagement, the piece does not need to yield anything more than user action, driving traffic, therefore presence and potential profit. ARmerican experess, bARge, and We ARe hoping you'd buy it openly make this connection, as the price of the work is directly affected by how the viewer engages with it, in an arbitrary fashion. The very real economic demands of running an institution, or simply making a living from art making, requires an attention to "a bottom line," which increased foot-traffic and "brand recognition" drive up.
+    </p>
+    <p>
+    Technological tools like AR provide an enticing solution to that problem, while promising a world of new artistic possibilities. As it is being applied, it merely panders to a type of technological fetishization, as it repeats its original case studied purpose: engaging the user for the sake of engaging the user. As such, the audience enters a purely reactive stance. Yet, the viewer does not react or act to the piece: they react largely to their own activity. Thus the art now achieves meaning solely via the user's self-involvement, regardless of the artist's original input. Similarly puARple, the prevailing model of AR treatment in art simply mirrors the user's desire for satisfying and unchallenging interaction.
+    </p>
+    <p>
+    While Eyemole laments the lack of creativity in the use of their services, they subtly incorporated ways in which the show does more than "slap AR onto spoils." Eyemole created a true internet art exhibit, that is not just a video art piece that aesthetically mimics internet tropes in isolation. Each work interacts with We ARe hoping you'd buy it through the World Wide Web in real time, as an example. This challenges assumptions of archivability and permanence that digital technology is commonly understood to guarantee. The apparatuses required to make AR are not reproducible by the artist or a group of artists themselves: this medium remains subject to its enablement by a massive amount of technology and financial capital. Dozens of separate technologies and online services are employed to produce the spectacle, none of which could belong to the artist, the viewer, or the ceiling collector outright: the work is contingent on the continued existence of layers of other organizations and the terms of their End User License Agreements. Eyemole wants you to buy their art, but they also want you to buy into the actual possibilities of ARt.”
+  </p>
+  - Pauline Petit
+  </div>
+  </W69.SimpleDropDown>
+  </div>
+  )
+}
+
+function Corpus(){
+  return(
+    <div class="ContentWindowContent">
+    <center><img src={require("./img/corpus-4.gif")} loading="lazy"/></center><p/>
+    Corpus is currently a WIP prototype of an indie body horror rhythm game. In corpus, you fight for get your body back by synchronizing with the enemy.
+    <p/>
+    <b>design story:</b><br/>
+    Corpus has undergone over many systematic iterations: it started with paper prototypes of interface mechanics, leading up to low fidelity mockups of gameplay mechanics in Unity, to finally more involved implementations with detailed assets. Throughout the development process, each major iteration was evaluated against naive users. Evaluations took many forms: for example, some users were asked to do a cognitive walkthrough or think-aloud task when playing the game, while others were given very minimal instructions, with critical incidents being noted and discussed. Much user feedback was gathered during semi-structured interviews after playing sessions. With Corpus, I used low-cost evaluation techniques to make as many drastic changes to the game as possible before high-fidelity implementations, which drastically saved development time.
+    </div>
+    )
+}
+
+export {Welcome, PooWindow, Research, Contact, About_Education, About, About_Skills, Projects, Projects_Film, Projects_Interactive}

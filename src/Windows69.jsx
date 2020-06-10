@@ -19,15 +19,20 @@ const popupAnim = {
           scaleY:0,
           ease:'anticipate',
           }
+}
 
-  // hidden:{
-  //         scaleX:0,
-  //         scaleY:0,
-  //         transition:{
-  //           type: 'spring',
-  //           scaleX:{duration:1},
-  //           scaleY:{duration:0.4}
-  //         }}
+
+  const fullSlide = {
+  visible:{
+          y:0,
+          transition:{ ease: "easeInOut"}
+        },
+
+  hidden:{
+          y:window.screen.height,
+          transition:{ ease: "easeInOut"}
+
+          }
 }
 
 
@@ -49,23 +54,20 @@ class GenericWindow extends Component {
     this.state = {draggable:false, mouseUp:false, closeIcon:false, closed:false}
   }
     
-  render(){return( 
+  render(){
 
-      //   $(`.${id}Bar`).append(`<span class="close" id="${id}_close">x</span>`)
-      // $(`#${id}_close`).click(()=>{
-      // $(`#${this.name}` ).toggle("size", 200 );       
-
-
+        if(this.props.content != null){
+        return(       
         <motion.div 
             drag={this.state.draggable}
             dragMomentum={false}
-            className={this.props.visibile ? "ContentWindow" : "ContentWindow invisibile"}
+            className={this.props.visibile ? "ContentWindow "+this.props.additionalClasses : "ContentWindow invisibile"}
             style={this.props.overrideStyle}
             id={this.props.id}
             animate={(this.props.show) ? "visible":"hidden"}
             // animate={(this.props.show && this.props.toggle) ? "visible":"hidden"}
 
-            variants={popupAnim}
+            variants={window.screen.width/window.screen.height > 1 ? popupAnim : fullSlide}
             >
               <motion.div 
               className="contentTopBar homeBar"
@@ -99,7 +101,11 @@ class GenericWindow extends Component {
   
         </motion.div>
       )}
-  
+      else{
+        return(null)
+      }
+      }
+
   }
   
 
@@ -132,7 +138,7 @@ class OpenWindowForever extends Component{
               visibile={this.state.clicked}
               show={this.state.showWindow} 
               toggle={this.state.showWindow}
-
+              additionalClasses={this.props.additionalClasses}
               toggleFunction={this.toggleWindow.bind(this)}
               id={this.props.id} 
               content={this.props.content} 
@@ -207,6 +213,33 @@ class DropDown extends Component{
   }
 }
 
+class SimpleDropDown extends Component{
+  constructor(props){
+    super(props)
+    this.state = {clicked:false}
+  }
+
+  render(){
+    return(
+      <div>
+      <a
+      onClick={e=>this.setState({clicked:!this.state.clicked})}
+      >
+        {this.props.linkText}
+      </a>
+      <motion.div
+      className={this.state.clicked ? "" : "invisibile"}
+      animate={this.state.clicked ? "visible" : "hidden"}
+      variants={slideDown}
+      style={{overflowY:'hidden'}}
+      >
+      {this.props.children}
+      </motion.div>
+      </div>
+      )
+  }
+}
+
 
 class Icon extends Component{
   constructor(props){
@@ -266,5 +299,5 @@ class Icon extends Component{
 
 
 
-export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon};
+export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon, SimpleDropDown};
 

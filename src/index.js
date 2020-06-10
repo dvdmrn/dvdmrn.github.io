@@ -46,20 +46,7 @@ class Menu extends Component{
             </div>
             <p>
             </p>
-            <div onClick={ e=>this.setState({targetWindow:"poo",targetDD:null}) }>
-              <W69.OpenWindow 
-                id="poo"
-                text="+ poo window"
-                content={<Content.PooWindow/>}
-                title="poo window"
-                targetWindow={this.state.targetWindow}
-                overrideStyle={{top:0,left:0}}
-                
-                />
-            </div>
 
-            <p>
-            </p>
             <div onClick={ e=>this.setState({targetWindow:"about", targetDD:"about_DD"}) }>
               <W69.OpenWindow 
                 id="about"
@@ -126,7 +113,7 @@ class Menu extends Component{
               <W69.OpenWindow 
                 id="projects"
                 text="+ projects"
-                content={<Content.Projects/>}
+                content={null}
                 title="projects"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
@@ -185,19 +172,22 @@ class Menu extends Component{
                     />
               </div>
 
-              <div onClick={ e=>this.setState({targetWindow:"print"}) }>
-                  <W69.OpenWindow 
-                    id="print"
-                    text="⤷ print"
-                    content={<Content.PooWindow/>}
-                    title="print"
-                    targetWindow={this.state.targetWindow}
-                    overrideStyle={{top:0,left:0}}
-
-                    />
-              </div>
-
             </W69.DropDown>
+            <p/>
+             <div onClick={ e=>this.setState({targetWindow:"contact",targetDD:null}) }>
+              <W69.OpenWindow 
+                id="contact"
+                text="+ contact"
+                content={<Content.Contact/>}
+                title="contact"
+                targetWindow={this.state.targetWindow}
+                overrideStyle={{top:0,left:0}}
+                
+                />
+            </div>
+
+
+
           </div>
         </div>
       )
@@ -227,6 +217,7 @@ class App extends Component{
 
   render() {
     // const {isVisible} = this.state;
+      {console.log(window.screen.width/window.screen.height)}
     return (
 
       <div className="content">
