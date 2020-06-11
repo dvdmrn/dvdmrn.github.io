@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import './style/desktop.css';
-// import './style/loader.css';
-// // import './style/menu.css';
-// import './style/rootstyle.css';
-import './style/style.css';
-// import './style/windowstyle.css';
-// import './style/wireframe.css';
 
+import './style/style.css';
+
+
+import { motion } from "framer-motion"
 
 import * as W69 from './Windows69.jsx';
 import * as Content from './content.jsx';
@@ -19,22 +16,52 @@ import * as Pet from './Pet.jsx'
 class Menu extends Component{
   constructor(props){
     super(props)
-    this.state = {lastWindow:"home", targetWindow:"x", targetDD:"x"};
+    this.state = {
+      lastWindow:"home", 
+      targetWindow:"x", 
+      targetDD:"x",
+      offScreen:false,
+      menuBase:0
+    };
+
     this.closeLastWindow = this.closeLastWindow.bind(this);
+    this.onPan = this.onPan.bind(this);
+
   }
-  // TODO: Meny will handle state control flow for opening menu items
-  // so that windows are mutually exclusive
+  
 
   closeLastWindow(){
     console.log(`last window: ${this.state.lastWindow}`);
   }
+
+  onPan(e, info){
+    console.log(this.state.lastWindow != this.state.targetWindow)
+    if((info.delta.x < -10) && 
+        this.state.lastWindow != this.state.targetWindow &&
+        window.screen.width/window.screen.height < 1){
+      this.setState({offScreen:true});
+    }
+    if(info.delta.x > 10){
+      this.setState({offScreen:false});
+
+    }
+  }
+  closedWindow(){
+    console.log("closed window called!")
+    this.setState({targetWindow:'x'})
+  }
   render(){
     return(
-       <div className="menu ui-widget-content" id="draggable">
+       <motion.div 
+          className="menu ui-widget-content" 
+          id="draggable" 
+          onPan={this.onPan}
+          animate={this.state.offScreen ? {x:-250} : {x:0}}
+          >
           <div className="topbar gradient"> menu </div>
           <div id="menuItems">
 
-            <div onClick={ e=>this.setState({targetWindow:"home",targetDD:null}) }>
+            <div onClick={ ()=>{this.setState({targetWindow:"home",targetDD:null, lastWindow:"home"})} }>
               <W69.OpenWindow 
                 id="home"
                 text="+ home"
@@ -42,12 +69,14 @@ class Menu extends Component{
                 title="home"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
+                closedWindow={this.closedWindow.bind(this)}
+
                 />
             </div>
             <p>
             </p>
 
-            <div onClick={ e=>this.setState({targetWindow:"about", targetDD:"about_DD"}) }>
+            <div onClick={ e=>this.setState({targetWindow:"about", targetDD:"about_DD",lastWindow:"about"}) }>
               <W69.OpenWindow 
                 id="about"
                 text="+ about"
@@ -55,6 +84,7 @@ class Menu extends Component{
                 title="about"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
+                closedWindow={this.closedWindow.bind(this)}
 
                 />
             </div>
@@ -62,7 +92,7 @@ class Menu extends Component{
               id="about_DD"
               target={this.state.targetDD}
             >
-                <div onClick={ e=>this.setState({targetWindow:"edu"}) }>
+                <div onClick={ e=>this.setState({targetWindow:"edu",lastWindow:"edu"}) }>
                   <W69.OpenWindow 
                     id="edu"
                     text="⤷ edu."
@@ -70,9 +100,11 @@ class Menu extends Component{
                     title="education"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
+                    closedWindow={this.closedWindow.bind(this)}
+
                     />
                 </div>
-                <div onClick={ e=>this.setState({targetWindow:"cv"}) }>
+                <div onClick={ e=>this.setState({targetWindow:"cv",lastWindow:"cv"}) }>
                   <W69.OpenWindow 
                     id="cv"
                     text="⤷ cv"
@@ -80,10 +112,11 @@ class Menu extends Component{
                     title="cv"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
+                    closedWindow={this.closedWindow.bind(this)}
 
                     />
                 </div>
-                <div onClick={ e=>this.setState({targetWindow:"skills"}) }>
+                <div onClick={ e=>this.setState({targetWindow:"skills",lastWindow:"skills"}) }>
                   <W69.OpenWindow 
                     id="skills"
                     text="⤷ skills"
@@ -91,11 +124,13 @@ class Menu extends Component{
                     title="skills"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
+                    closedWindow={this.closedWindow.bind(this)}
+
                     />
                 </div>          
             </W69.DropDown>
             <p></p>
-            <div onClick={ e=>this.setState({targetWindow:"research",targetDD:null}) }>
+            <div onClick={ e=>this.setState({targetWindow:"research",targetDD:null,lastWindow:"research"}) }>
               <W69.OpenWindow 
                 id="research"
                 text="+ research"
@@ -103,13 +138,13 @@ class Menu extends Component{
                 title="research"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
-
+                closedWindow={this.closedWindow.bind(this)}
                 />
             </div>
 
             <p></p>
 
-            <div onClick={ e=>this.setState({targetWindow:"projects", targetDD:"projects_DD"}) }>
+            <div onClick={ e=>this.setState({targetWindow:"projects", targetDD:"projects_DD",lastWindow:"projects"}) }>
               <W69.OpenWindow 
                 id="projects"
                 text="+ projects"
@@ -117,7 +152,7 @@ class Menu extends Component{
                 title="projects"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
-
+                closedWindow={this.closedWindow.bind(this)}
                 />
             </div>
 
@@ -125,7 +160,7 @@ class Menu extends Component{
               id="projects_DD"
               target={this.state.targetDD}
             >
-              <div onClick={ e=>this.setState({targetWindow:"film"}) }>
+              <div onClick={ e=>this.setState({targetWindow:"film",lastWindow:"film"}) }>
                   <W69.OpenWindow 
                     id="film"
                     text="⤷ film"
@@ -133,10 +168,11 @@ class Menu extends Component{
                     title="film"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
+                    closedWindow={this.closedWindow.bind(this)}
                     />
               </div> 
 
-              <div onClick={ e=>this.setState({targetWindow:"photos"}) }>
+              <div onClick={ e=>this.setState({targetWindow:"photos",lastWindow:"photos"}) }>
                   <W69.OpenWindow 
                     id="photos"
                     text="⤷ photos"
@@ -144,11 +180,11 @@ class Menu extends Component{
                     title="photos"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
-
+                    closedWindow={this.closedWindow.bind(this)}
                     />
               </div>
 
-              <div onClick={ e=>this.setState({targetWindow:"interactive"}) }>
+              <div onClick={ e=>this.setState({targetWindow:"interactive",lastWindow:"interactive"}) }>
                   <W69.OpenWindow 
                     id="interactive"
                     text="⤷ 🤖"
@@ -156,11 +192,11 @@ class Menu extends Component{
                     title="interactive"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
-
+                    closedWindow={this.closedWindow.bind(this)}
                     />
               </div>              
 
-              <div onClick={ e=>this.setState({targetWindow:"comics"}) }>
+              <div onClick={ e=>this.setState({targetWindow:"comics",lastWindow:"comics"}) }>
                   <W69.OpenWindow 
                     id="comics"
                     text="⤷ comics"
@@ -168,13 +204,13 @@ class Menu extends Component{
                     title="comics"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
-
+                    closedWindow={this.closedWindow.bind(this)}
                     />
               </div>
 
             </W69.DropDown>
             <p/>
-             <div onClick={ e=>this.setState({targetWindow:"contact",targetDD:null}) }>
+             <div onClick={ e=>this.setState({targetWindow:"contact",targetDD:null,lastWindow:"contact"}) }>
               <W69.OpenWindow 
                 id="contact"
                 text="+ contact"
@@ -182,14 +218,14 @@ class Menu extends Component{
                 title="contact"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
-                
+                closedWindow={this.closedWindow.bind(this)}                
                 />
             </div>
 
 
 
           </div>
-        </div>
+        </motion.div>
       )
 
   }

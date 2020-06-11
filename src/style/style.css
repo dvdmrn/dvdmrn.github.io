@@ -15,23 +15,42 @@
 
   }
 
+	a:link {
+	  /*color: #fd75ff;*/
+	  color: #fbe25e;
+	  font-weight: bold;
+	}
   .content{
-  	background-color: #004;
+	  position: fixed;
+	  background-image: radial-gradient(#537b69 3%,transparent 4%);
+	  background-size: 50px 50px;
+	  background-color: #151a1c;
+	  width:  100%;
+	  height: 100%;
+	  scrollbar-color: #60ffbc #fff;
+	  scrollbar-width: thin;
+	  color:#fee;
+
   }
   .menu{
-
+  	left:0px;
     box-shadow: 0px, 0px, var(--window-color);
-    left: 0px;
     height:100vh;
-    width:50%;
+    width:75%;
     background-color:#448;
     color:#fee;
+    font-size:25px;
 
+
+  }
+  .topbar{
+  	font-size:40px;
   }
   #LeftWrapper{
     top:0px;
     left:0px;
     width:100%;
+    /*visibility: hidden;*/
   }
 
   .ContentWindow{

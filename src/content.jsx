@@ -393,6 +393,7 @@ class Voodle extends Component{
             light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
             controls="true" 
             playing={this.props.playable}
+            embedOptions={null}
             />
           </center>
           </p>

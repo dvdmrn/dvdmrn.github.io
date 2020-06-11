@@ -86,8 +86,10 @@ class GenericWindow extends Component {
                 <span 
                   className="close" 
                   id={this.props.id+"_close"}
-                  onClick={()=>{
+                  onClick={(e)=>{
+                    e.stopPropagation();
                     this.props.toggleFunction();
+                    this.props.closedWindow();
                     if(this.props.onWindowClose){
                       this.props.onWindowClose();
                     }
@@ -160,6 +162,7 @@ class OpenWindow extends Component{
 
   toggleWindow(){
     this.setState({showWindow:!this.state.showWindow});
+
   }
 
   render(){
@@ -182,6 +185,7 @@ class OpenWindow extends Component{
         id={this.props.id} 
         content={this.props.content} 
         title={this.props.title}
+        closedWindow={this.props.closedWindow}
 
       />
     </span>
@@ -258,7 +262,6 @@ class Icon extends Component{
     else{
       this.setState({doubleClick:true})
       setTimeout(()=>{this.setState({doubleClick:false})},1000);
-
     }
   }
 
@@ -267,15 +270,20 @@ class Icon extends Component{
   }
   render(){
     return(
-      <div>
+      <div
+
+      >
         <motion.div
           className="icon"
           drag={true}
           dragMomentum={false}
-          onClick={()=>this.doubleClick()}
+          onClick={()=>{window.screen.height/window.screen.width > 1 ? alert("yowza") : this.doubleClick()}}
           id={this.props.id}
+
         > 
-            <img src={this.props.image}/><br/>
+            <img src={this.props.image}
+                      onTouchEnd={e=>console.log('untouched')}
+/><br/>
             <span>{this.props.name}</span>
 
         </motion.div>
@@ -290,6 +298,7 @@ class Icon extends Component{
                 content={this.props.content} 
                 title={this.props.title}
                 overrideStyle={this.props.overrideStyle}
+                closedWindow={null}
         />
       </div>
       )
