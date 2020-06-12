@@ -239,6 +239,7 @@ class Desktop extends Component{
         image={require('./img/bonzi.png')}
         name="pet.exe"
         id="petIcon"
+        className="desktopApp"
 
         windowId="PetWindow" 
         content={<Pet.Pet/>}
@@ -248,6 +249,30 @@ class Desktop extends Component{
   }
 }
 
+class LeftWrapper extends Component{
+  constructor(props){
+    super(props)
+    }
+
+    render(){
+    return(
+      <div id="LeftWrapper">
+        {this.props.children}
+      <W69.Icon
+        image={require('./img/pet-mobile.png')}
+        name="PetApp"
+        id="petIcon"
+        className="mobileApp"
+
+        windowId="PetWindow" 
+        content={<Pet.Pet/>}
+        title="virtual pet"
+        />
+      </div>
+
+      )
+  }
+}
 
 class App extends Component{
 
@@ -258,10 +283,10 @@ class App extends Component{
 
       <div className="content">
         <Desktop/>
-        <div id="LeftWrapper">
+        <LeftWrapper>
           <Menu/>
 
-        </div>
+        </LeftWrapper>
       </div>
       )
   }

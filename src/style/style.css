@@ -6,7 +6,13 @@
 @import url('desktop.css');
 
 
+.desktopApp{
+  visibility: visible;
+}
 
+.mobileApp{
+  visibility: hidden;
+}
 
 @media (max-aspect-ratio: 10/11) {
   body{
@@ -93,5 +99,12 @@
   	overflow-y: scroll;
   }
 
+.desktopApp{
+  visibility: hidden;
+}
+
+.mobileApp{
+  visibility: visible;
+}
 
 }

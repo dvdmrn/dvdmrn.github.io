@@ -95,13 +95,24 @@ const About_Education = ()=>{
     <div className="ContentWindowContent">
       <span className="gradient"><b>education</b></span>
       <p/>
+      <p style={{margin:"30px"}}/>
+
+      <div>
       <Emoji symbol="🎬" label="film slate"/> <div className="indent">I first studied <b>film production</b> at at Capilano University. I completed a certificate in cinematography, then dropped out in my second year. </div>
-    
-      <p/>
+      </div>
+      <hr style={{margin:"30px"}}/>
+
+      <div style={{marginTop:"30px"}}>
       <Emoji symbol="🧠" label="brain"/> <div className="indent">The next logical step was then to do my BA in <b>Cognitive Systems</b> at the University of British Columbia. Cognitive Systems unites the fields of linguistics, psychology, philosophy, and computer science to study the design of intelligent systems and the interfaces between them (such as a robot, animal, or language).</div>
-      
+      </div>
       <p/>
+      <hr/>
+      <p/>
+      <div>
       <Emoji symbol="💻" label="computer"/> <div className="indent">After finishing my BA, it then extremely logically entailed that I do my masters in <b>Electrical and Computer Engineering</b> at McGill University, where I focused on <b>Human Computer Interaction</b>.</div>
+      </div>
+      <p/>
+      <hr/>
       Thank you for joining me on my very rational and logical educational journey.
     </div>
   )

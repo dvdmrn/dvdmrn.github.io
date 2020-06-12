@@ -271,19 +271,17 @@ class Icon extends Component{
   render(){
     return(
       <div
-
+      className={this.props.className}
       >
         <motion.div
           className="icon"
-          drag={true}
+          drag={window.screen.height/window.screen.width > 1 ? false : true}
           dragMomentum={false}
           onClick={()=>{window.screen.height/window.screen.width > 1 ? alert("yowza") : this.doubleClick()}}
           id={this.props.id}
 
         > 
-            <img src={this.props.image}
-                      onTouchEnd={e=>console.log('untouched')}
-/><br/>
+            <img src={this.props.image}/><br/>
             <span>{this.props.name}</span>
 
         </motion.div>
