@@ -99,3 +99,15 @@
   border-color: var(--window-color);
   box-shadow: 10px 10px var(--window-color);
 }
+
+.playerWrapper{
+  position:relative;
+  padding-bottom: 56.25%;
+}
+
+.videoContent{
+  position:absolute;
+  top:0;
+  left:0;
+
+}

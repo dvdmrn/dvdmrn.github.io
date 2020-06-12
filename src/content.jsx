@@ -100,19 +100,22 @@ const About_Education = ()=>{
       <div>
       <Emoji symbol="🎬" label="film slate"/> <div className="indent">I first studied <b>film production</b> at at Capilano University. I completed a certificate in cinematography, then dropped out in my second year. </div>
       </div>
-      <hr style={{margin:"30px"}}/>
 
-      <div style={{marginTop:"30px"}}>
+      <p style={{marginTop:"10px", marginBottom:"50px"}}/>
+
+      <div>
       <Emoji symbol="🧠" label="brain"/> <div className="indent">The next logical step was then to do my BA in <b>Cognitive Systems</b> at the University of British Columbia. Cognitive Systems unites the fields of linguistics, psychology, philosophy, and computer science to study the design of intelligent systems and the interfaces between them (such as a robot, animal, or language).</div>
       </div>
-      <p/>
-      <hr/>
-      <p/>
+
+      <p style={{marginTop:"10px", marginBottom:"50px"}}/>
+
+
       <div>
       <Emoji symbol="💻" label="computer"/> <div className="indent">After finishing my BA, it then extremely logically entailed that I do my masters in <b>Electrical and Computer Engineering</b> at McGill University, where I focused on <b>Human Computer Interaction</b>.</div>
       </div>
-      <p/>
-      <hr/>
+
+      <p style={{marginTop:"10px", marginBottom:"50px"}}/>
+
       Thank you for joining me on my very rational and logical educational journey.
     </div>
   )
@@ -195,7 +198,7 @@ const Projects = () =>{
     )
 }
 
-const Projects_Film = () =>{
+const Projects_Film = (props) =>{
   return(
       <div className="ContentWindowContent">
         <span className="gradient"><b>film</b></span><p></p>
@@ -206,46 +209,22 @@ const Projects_Film = () =>{
         <b>Demo Reel</b><br/>
         <i>My demo reel is general in nature and shows examples of past work in directing, cinematography, motion graphics, and editing</i><p></p>
         <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/JKNi4sijfgI" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </center>
-        <p></p>
-        
-        <hr/>
-        <b>Director of Photography</b><br/>
-        <i>Advertisement<br/>
-        Client: <a href="https://filmora.wondershare.com/">Wondershare Filmora</a></i><p></p>
-        <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/qlSJ1vJ66iI" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </center>
-        <p/>
-        
-        <hr/>
-        <p></p>
-        <b>Director, writer</b><br/>
-        <i>Skit<br/>
-        Magazine: <a href="https://www.facebook.com/SyrupTrap/">The Syrup Trap</a></i><p></p>
-        <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WY8FivM1gMg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </center>
-        
-        <hr/>
-        <p></p>
-        <b>Director, VFX</b><br/>
-        <i>Music video<br/>
-        Band: <a href="https://www.youtube.com/watch?v=ermbZmipxIs">April Fools Childrenhood</a></i><p></p>
-        <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ermbZmipxIs" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </center>
-        
-        <hr/>
-        <p></p>
-        <b>Motion graphics</b><br/>
-        <i>A web promotion for an augmented reality art exhibition called "We Were Hoping You'd Buy It". Spelling mistakes are intensiona;l.</i><p></p>
-        <center>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/-rkujE-pwMY" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </center>
-        <p></p>
+          <div className="playerWrapper">
+             <ReactPlayer 
+            className="video videoContent"
 
+            url="https://www.youtube.com/embed/JKNi4sijfgI" 
+            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            controls="true" 
+            playing={props.playable}
+            width='100%'
+            height='100%'
+            />
+          </div>
+        </center>
+        <p></p>
+    
+ 
       </div>
     )
 }
@@ -374,12 +353,12 @@ function WhatsHap(){
   return(
       <div className="ContentWindowContent">
         <b>WhatsHap</b><p/>
-        <img src={require('./img/algorithm-sketch.png')} style={{width:'100%'}} loading="lazy"/><p/>
+        <img src={require('./img/algorithm-sketch.png')} style={{width:'100%', backgroundColor:"white",padding:"10px"}} loading="lazy"/><p/>
         WhatsHap is an instant messaging app that allows you to speak through touch. <br/>
         It converts a user's voice or a text message to a sequence of pattered vibrations
         corresponding to the message's constituent phonemes (~=meaningful speech sounds).<p/>
         <img src={require('./img/app-UI.png')} style={{width:'33%',float:'left'}} loading="lazy"/>A visual of the working prototype's UI is displayed on the left. Why ever would you want to message someone using only vibrations when speaking or texting may do just as well? There are many circumstances where visual and auditory modalities may be saturated, and you need an 'eyes free','ears free' way of communicating, such as doing a cooperative task in a noisy visually overwhelming environment. This channel of communication also has applications for deafblind users, though this is device was not validated nor designed alongside that user group.<p/>
-          WhatsHap was designed in several stages. First, an haptic phoneme encoding system was developed and validated by Vargas et. al. Then, I sketched some designs for an initial UI. After some rounds of tweaking, we ran a user study with both expert and novice users of the system. <p/>
+          WhatsHap was designed in several stages. First, an haptic phoneme encoding system was developed and validated by Vargas et. al. Then, I sketched some designs for an initial UI. After some rounds of tweaking, I implemented a high fidelity prototype: the user wears two voice coil based vibrators on their arm, which connects to their phone, that in turn runs browser based web app that performs the speech->haptic computation, and frontend messaging interface. To evaluate the design of the system, we ran a user study with both expert and novice users of the system. <p/>
           <b>Key technologies:</b> Node.js, jquery, Socket.io, Google Speech-to-text<br/>
           <b>Tags</b>: Phoneme, conversation, multimodal
       </div>

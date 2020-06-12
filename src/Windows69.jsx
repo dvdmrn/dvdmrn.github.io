@@ -296,7 +296,7 @@ class Icon extends Component{
                 content={this.props.content} 
                 title={this.props.title}
                 overrideStyle={this.props.overrideStyle}
-                closedWindow={null}
+                closedWindow={()=>{}}
         />
       </div>
       )

@@ -80,7 +80,7 @@ class Menu extends Component{
               <W69.OpenWindow 
                 id="about"
                 text="+ about"
-                content={<Content.About/>}
+                content={null}
                 title="about"
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
@@ -92,6 +92,20 @@ class Menu extends Component{
               id="about_DD"
               target={this.state.targetDD}
             >
+
+                <div onClick={ e=>this.setState({targetWindow:"bio", lastWindow:"bio"}) }>
+                  <W69.OpenWindow 
+                    id="bio"
+                    text="⤷ bio"
+                    content={<Content.About/>}
+                    title="bio"
+                    targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+                    closedWindow={this.closedWindow.bind(this)}
+
+                    />
+                </div>
+
                 <div onClick={ e=>this.setState({targetWindow:"edu",lastWindow:"edu"}) }>
                   <W69.OpenWindow 
                     id="edu"
@@ -164,7 +178,7 @@ class Menu extends Component{
                   <W69.OpenWindow 
                     id="film"
                     text="⤷ film"
-                    content={<Content.Projects_Film/>}
+                    content={<Content.Projects_Film playable={this.state.targetWindow=="film"}/>}
                     title="film"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
@@ -257,6 +271,7 @@ class LeftWrapper extends Component{
     render(){
     return(
       <div id="LeftWrapper">
+        <div id="mobileMask"/>
         {this.props.children}
       <W69.Icon
         image={require('./img/pet-mobile.png')}
