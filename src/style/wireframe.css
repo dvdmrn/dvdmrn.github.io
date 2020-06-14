@@ -109,5 +109,16 @@
   position:absolute;
   top:0;
   left:0;
+}
 
+.Gallery{
+  position:fixed;
+  top:0;
+  left:0;
+}
+
+.photoGallery{
+  background-color: red;
+  overflow-y: scroll;
+  z-index: 99999999;
 }

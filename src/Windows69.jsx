@@ -26,6 +26,7 @@ const popupAnim = {
   visible:{
           y:0,
           transition:{ ease: "easeInOut"}
+
         },
 
   hidden:{
@@ -39,7 +40,6 @@ const popupAnim = {
 const slideDown = {
   visible:{
            height:null,
-
          },
 
   hidden:{
@@ -87,6 +87,7 @@ class GenericWindow extends Component {
                   className="close" 
                   id={this.props.id+"_close"}
                   onClick={(e)=>{
+                    console.log("called");
                     e.stopPropagation();
                     this.props.toggleFunction();
                     this.props.closedWindow();
@@ -127,7 +128,8 @@ class OpenWindowForever extends Component{
       <span>
         <div 
           className="link"
-          onClick={()=>{
+          onClick={(e)=>{
+            e.stopPropagation()
             this.toggleWindow(); 
             this.setState({clicked:true, showWindow:true});
             if(this.props.onSetWindow){
@@ -147,6 +149,7 @@ class OpenWindowForever extends Component{
               title={this.props.title}
               overrideStyle={this.props.overrideStyle}
               onWindowClose={this.props.onWindowClose}
+              closedWindow={this.props.closedWindow}
               />
       </span>
       )
@@ -193,6 +196,97 @@ class OpenWindow extends Component{
   }
 }
 
+
+
+class OpenGallery extends Component{
+  constructor(props){
+    super(props)
+    this.state = {showWindow:false, clicked:false}
+    this.parentToContent.bind(this)
+  }
+
+  toggleWindow(){
+    this.setState({showWindow:!this.state.showWindow});
+  }
+
+  parentToContent(id){
+    var photo = document.getElementById(id);
+    // photo.id  = "newId";
+    document.getElementById("main").appendChild(photo); 
+  }
+
+  render(){
+    return(
+    <span>
+      <span 
+        className="menuItem"
+        onClick={()=>{this.toggleWindow(); this.setState({clicked:true, showWindow:true}); this.parentToContent(this.props.id)}}
+        >
+        {this.props.text}
+      </span>
+
+
+      <Gallery
+        show={(this.props.id === this.props.targetWindow) && this.state.showWindow} 
+        toggle={this.state.showWindow}
+
+        overrideStyle={this.props.overrideStyle}
+        toggleFunction={this.toggleWindow.bind(this)}
+        id={this.props.id} 
+        content={this.props.content} 
+        title={this.props.title}
+        closedWindow={this.props.closedWindow}
+
+      />
+
+    </span>
+    )
+  }
+}
+
+class Gallery extends Component{
+ constructor(props){
+    super(props);
+    this.state = {mouseUp:false, closeIcon:false, closed:false}
+  }
+    
+  render(){
+
+        if(this.props.content != null){
+        return(       
+        <div 
+            className={this.props.show ? "Gallery "+this.props.additionalClasses : "Gallery invisibile"}
+            style={this.props.overrideStyle}
+            id={this.props.id}
+            >
+              <div 
+                className="galleryTopBar"
+              >
+                {this.props.title}
+                <span 
+                  className="close" 
+                  id={this.props.id+"_close"}
+                  onClick={(e)=>{
+                    e.stopPropagation();
+                    this.props.toggleFunction();
+                    this.props.closedWindow();
+                    if(this.props.onWindowClose){
+                      this.props.onWindowClose();
+                    }
+                  }}
+                >x</span>
+              </div>
+                {this.props.content} 
+                {this.props.children}
+  
+        </div>
+      )}
+      else{
+        return(null)
+      }
+      }
+
+}
 
 class DropDown extends Component{
   constructor(props){
@@ -306,5 +400,5 @@ class Icon extends Component{
 
 
 
-export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon, SimpleDropDown};
+export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon, SimpleDropDown, OpenGallery};
 

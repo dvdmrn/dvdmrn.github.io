@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import {PhotoGallery} from './PhotoGallery'
+
+// import Gallery from "react-photo-gallery";
+// import Carousel, { Modal, ModalGateway } from "react-images";
+
 import './style/style.css';
 
 
@@ -187,10 +192,10 @@ class Menu extends Component{
               </div> 
 
               <div onClick={ e=>this.setState({targetWindow:"photos",lastWindow:"photos"}) }>
-                  <W69.OpenWindow 
+                  <W69.OpenGallery 
                     id="photos"
                     text="⤷ photos"
-                    content={<Content.PooWindow/>}
+                    content={<PhotoGallery/>}
                     title="photos"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
@@ -296,7 +301,7 @@ class App extends Component{
       {console.log(window.screen.width/window.screen.height)}
     return (
 
-      <div className="content">
+      <div className="content" id="main">
         <Desktop/>
         <LeftWrapper>
           <Menu/>

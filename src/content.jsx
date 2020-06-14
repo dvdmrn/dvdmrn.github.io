@@ -224,7 +224,91 @@ const Projects_Film = (props) =>{
         </center>
         <p></p>
     
- 
+       <hr/>
+      <b>Director of Photography</b><br/>
+      <i>Advertisement<br/>
+      Client: <a href="https://filmora.wondershare.com/">Wondershare Filmora</a></i><p></p>
+      <center>
+      <div className="playerWrapper">
+             <ReactPlayer 
+            className="video videoContent"
+
+            url="https://www.youtube.com/embed/qlSJ1vJ66iI" 
+            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            controls="true" 
+            playing={props.playable}
+            width='100%'
+            height='100%'
+            />
+          </div>
+      </center>
+      <p/>
+      
+      <hr/>
+      <p></p>
+      <b>Director, writer</b><br/>
+      <i>Skit<br/>
+      Magazine: <a href="https://www.facebook.com/SyrupTrap/">The Syrup Trap</a></i><p></p>
+      <center>
+
+            <div className="playerWrapper">
+             <ReactPlayer 
+            className="video videoContent"
+
+            url="https://www.youtube.com/embed/WY8FivM1gMg" 
+            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            controls="true" 
+            playing={props.playable}
+            width='100%'
+            height='100%'
+            />
+          </div>
+
+      </center>
+      
+      <hr/>
+      <p></p>
+      <b>Director, VFX</b><br/>
+      <i>Music video<br/>
+      Band: <a href="https://www.youtube.com/watch?v=ermbZmipxIs">April Fools Childrenhood</a></i><p></p>
+      <center>
+
+      <div className="playerWrapper">
+             <ReactPlayer 
+            className="video videoContent"
+
+            url="https://www.youtube.com/embed/ermbZmipxIs" 
+            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            controls="true" 
+            playing={props.playable}
+            width='100%'
+            height='100%'
+            />
+          </div>
+
+      </center>
+      
+      <hr/>
+      <p></p>
+      <b>Motion graphics</b><br/>
+      <i>A web promotion for an augmented reality art exhibition called "We Were Hoping You'd Buy It". Spelling mistakes are intensiona;l.</i><p></p>
+      <center>
+
+      <div className="playerWrapper">
+             <ReactPlayer 
+            className="video videoContent"
+
+            url="https://www.youtube.com/embed/-rkujE-pwMY" 
+            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            controls="true" 
+            playing={props.playable}
+            width='100%'
+            height='100%'
+            />
+          </div>
+
+      </center>
+      <p></p>
       </div>
     )
 }
@@ -250,98 +334,27 @@ render(){
   return(
     <div className="ContentWindowContent">
 
-
-      <p/>
-      <W69.OpenWindowForever
-        id="whatshap"
-        content={<WhatsHap/>}
-        title="WhatsHap"
-        additionalClasses="subWindow"
-        onSetWindow={this.handleSetWindow}
-        onWindowClose={this.windowClosed}
-      >
         <span className="gradient"><b>interactive</b></span><p></p>
-        <div className="fullbutton">
-        <img src={require('./img/whatshapicon.png')} alt="project icon" className="projicon"/> <b>WhatsHap</b><br/>
-          A messaging app with haptic phonemes 
-        </div>
-      </W69.OpenWindowForever>
+<p/>
+        <W69.OpenWindowForever
+          id="whatshap"
+          content={<WhatsHap/>}
+          title="WhatsHap"
+          additionalClasses="subWindow"
+          onSetWindow={this.handleSetWindow}
+          onWindowClose={this.windowClosed}
+          closedWindow={()=>{}}
+        >
 
 
-      <p/>
-      <W69.OpenWindowForever
-        id="voodle"
-        content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
+          <div className="projectButton">
+          <img className="projButtonImage" src={require('./img/whatshapicon.png')} alt="project icon"/>
+            <br/><b>WhatsHap</b><br/>
+            A messaging app with haptic phonemes 
+          </div>
 
-        title="Voodle"
-        additionalClasses="subWindow"
-        
-        onSetWindow={this.handleSetWindow}
-        onWindowClose={this.windowClosed}
 
-      >
-        <div className="fullbutton">
-        <img src={require('./img/voodleIcon.png')} alt="project icon" className="projicon"/> <b>Voodle</b><br/>
-        Vocal doodling to sketch affective robot motion
-        </div>
-      </W69.OpenWindowForever>
-
-      <p/>
-       <W69.OpenWindowForever
-        id="HapticSpeechEnhancement"
-        content={<HapticSpeechEnhancement/>}
-        title="Haptic Speech Enhancement"
-        additionalClasses="subWindow"
-      >
-        <div className="fullbutton">
-        <img src={projIcon} alt="project icon" className="projicon"/> <b>Haptic Speech Enhancement</b><br/>
-        Using vibrations to enhance the intelligibility of speech in noise
-        </div>
-      </W69.OpenWindowForever>
-
-      <p/>
-
-      <W69.OpenWindowForever
-        id="Corpus"
-        content={<Corpus/>}
-        title="Corpus"
-        additionalClasses="subWindow"
-      >
-        <div className="fullbutton">
-        <img src={require("./img/corpus.png")} alt="project icon" className="projicon" loading="lazy"/> <b>Corpus</b><br/>
-        Rhythm based body horror game
-        </div>
-      </W69.OpenWindowForever>
-      <p/>
-      <div className="fullbutton">
-      <img src={projIcon} alt="project icon" className="projicon"/> <b>Co-op Ride Hailing</b><br/>
-      A feasibility assessment for a cooperative ride hailing model in Vancouver.
-      </div>
-
-      <p/>
-      <div className="fullbutton">
-      <img src={projIcon} alt="project icon" className="projicon"/> <b>Single In Your Area</b><br/>
-      Tinder at the end of the world
-      </div>
-
-      <p/>
-
-       <W69.OpenWindowForever
-        id="WeWereHopingYoudBuyIt"
-        content={<WeWereHopingYoudBuyIt/>}
-        title="We Were Hoping You'd Buy It"
-        additionalClasses="subWindow"
-      >
-      <div className="fullbutton" id="ARt_selector">
-      <img src={projIcon} alt="project icon" className="projicon"/> <b>We Were Hoping You'd Buy It</b><br/>
-      Augmented Reality art show about Augmented Reality art shows UPDATED 2
-      </div>
-      </W69.OpenWindowForever>
-      <p/>
-      <div className="fullbutton">
-      <img src={projIcon} alt="project icon" className="projicon"/> <b>The Syrup Trap</b><br/>
-      Canadian humor magazine
-      </div>
+        </W69.OpenWindowForever>
     </div>
     )
 
@@ -374,19 +387,20 @@ class Voodle extends Component{
     return(
         <div className="ContentWindowContent">
           <b>Voodle</b>
-          <p>
+          <p/>
           <center>
-          <ReactPlayer 
-            className="video videoContent"
+          <div className="playerWrapper">
+            <ReactPlayer 
+              className="video videoContent"
 
-            url="https://www.youtube.com/watch?v=IcUq9PZhN7w" 
-            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
-            controls="true" 
-            playing={this.props.playable}
-            embedOptions={null}
-            />
+              url="https://www.youtube.com/watch?v=IcUq9PZhN7w" 
+              light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+              controls="true" 
+              playing={this.props.playable}
+              embedOptions={null}
+              />
+          </div>
           </center>
-          </p>
           <p>
             Voodle, or "vocal doodling", lets users sketch robot motion with their voice. At the Sensory Perception and Interaction Lab, we were interested in generating many emotional behaviours for simple 1-DOF robots. Voice naturally encodes emotional quality in the speech signal, so we thought, what's a better way to do this than simply using physical aspects of the speech signal to drive robot motion? Instead of having to manually puppet or pre-program symbolic emotional states <i>a priori</i>, we can use affective dimensions of speech as a basis to generate the behaviours on the fly.
           </p>

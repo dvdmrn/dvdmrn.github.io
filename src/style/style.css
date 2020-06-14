@@ -83,6 +83,7 @@
   	position: fixed;
   	display: block;
   	width: 100%;
+    /*z-index: 1;*/
   }
 
   
@@ -121,6 +122,12 @@
     visibility: visible;
     background-color: #448;
     z-index: -1;
+  }
+
+  .subWindow{
+    position: fixed; 
+    left:0px;
+    top:0px;
   }
 
 }
