@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>affective input</title>
+  <script src="https://cdn.jsdelivr.net/d3js/3.5.9/d3.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <h3>Sensory emotional response</h3>
+  <div id="controls">
+    <!-- !!! -->
+
+    pid: <input type="text" id="pidField" value="" size="3"><br/>
+    task: <input type="text" id="taskField" value="" size="3"><p/>
+    <button
+        onClick="svg.selectAll('g').remove()">reset</button><p/>  
+    <button
+        onClick="saveSvg(svg.select('polygon')[0][0],makeFileName())">save</button>
+  </div>
+    <!-- <div class="container"></div> -->
+  <script src="main.js"/>
+  <script>
+
+  </script>
+
+</body>
+</html>
