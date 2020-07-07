@@ -146,7 +146,7 @@ for (var i = 0; i < 5; i++) {
                   .attr("x",220)
                   .attr("y",nextCoord+5)
                   .attr("class","tickLabel")
-                  .text(start+(0.5*i)==0? "" : start+(0.5*i))
+                  .text(start+(0.5*i)==0? "" : -(start+(0.5*i)))
 
     svg.append("line")
                 .attr("x1",250)
