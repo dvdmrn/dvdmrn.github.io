@@ -12,6 +12,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-images": "^1.1.7",
+    "react-loading-screen": "0.0.17",
     "react-photo-gallery": "^8.0.0",
     "react-player": "^2.1.0",
     "react-pose": "^4.0.10",

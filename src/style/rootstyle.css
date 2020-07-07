@@ -186,23 +186,57 @@ h2{
 .projectButton{
   display: inline-block;
   width:300px;
-  height: 300px;
-  outline: 1px
+  outline: 1px;
+  background-color: #ffedd0;
+  color:#333;
+/*  margin-left: 10px;
+  margin-right: 10px;*/
+  margin: 10px;  
+
 }
+
+.projectButton:hover{
+  background: linear-gradient(-60deg, #ffedd0 0%, #ffd0e8 25%, #ffd0e8 75%, #ffedd0 100%);
+/*  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+*/  
+  background-size: 800% auto;
+  animation: textShine 7s ease-in-out infinite;
+
+
+  cursor: cell;
+
+}
+
+.innerProjButton{
+  padding:30px;
+}
+
 
 .projButtonImage{
   width: 100%;
   height: 75%;
 }
+
+.projButtonImage:hover{
+ height:100%;
+}
+
 .projicon{
   float:left;
   object-fit: cover;
   border-radius: 50%;
   width:100px;
-  margin-right: 20px;
 
 }
 
+.projWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .quote{
   border-left: 2px solid #ff6000;
@@ -261,3 +295,5 @@ ul li:before {
   left:30px;
   top:40px;
 }
+
+

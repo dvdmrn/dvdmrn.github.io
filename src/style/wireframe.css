@@ -55,12 +55,12 @@
 /* pet */
 #PetWindow{
 
-  width:275px;
-  height:275px;
-  float:left; 
+  width:400px;
+  /*height:400px;*/
+  /*float:left; */
   position: fixed;
-  display: flex;
-  flex-direction: column;
+/*  display: flex;
+  flex-direction: column;*/
   margin-top:500px;
   bottom:0;
   right:0;
@@ -71,6 +71,40 @@
   border-color: var(--window-color);
   box-shadow: 10px 10px var(--window-color);
   }
+
+.petUIbutton{
+  display: inline-block;
+  padding: 10px;
+  border-radius: 15px;
+  margin:10px ;
+  /*border: 1.5px dotted #333;*/
+  background-color: #eee;
+  overflow: hidden;
+}
+
+.petUIbutton:hover{
+  background-color: #888;
+}
+
+.petControls{
+  display: block;
+  /*position: absolute;*/
+  /*bottom:0px;*/
+  left:0px;
+  right:0px;
+  text-align: center;
+}
+
+.petText{
+  background-color: #eee;
+  padding:5px;
+  display: block;
+  text-align: center;
+}
+
+.petDisplay{
+  text-align: center;
+}
 
 #avi{
   /* personal pic */

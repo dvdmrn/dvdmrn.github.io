@@ -1,0 +1,3 @@
+{
+	"welcome":" <span className='gradient'><b>Welcome!</b></span> <p> <Emoji symbol='💡' label='lightbulb'/> TIP: Use panels to the left to navigate. </p> <img src={require('./img/construction_banner.gif')} style={{width:'100%'}}/> <p/> <center> <img src={require('./img/under_construction.gif')} style={{width:'300px'}}/> <img src={require('./img/construction_sign.gif')} style={{width:'200px'}}/> <marquee><b>Warning:</b> this website is <b>under construction</b></marquee> </center>"
+}

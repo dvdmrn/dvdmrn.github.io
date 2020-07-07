@@ -5,6 +5,7 @@ import avi from './img/avi-pink.png';
 import projIcon from './img/projicon.png';
 import * as W69 from "./Windows69.jsx";
 import ReactPlayer from 'react-player';
+import content from './content-modules.json';
 
 // import ProjImages from './projectimages.jsx';
 
@@ -12,10 +13,7 @@ import ReactPlayer from 'react-player';
 const Welcome = ()=>{
   return(
           <div className="ContentWindowContent">
-          <span className="gradient"><b>Welcome!</b></span>
-          <p>
-            <Emoji symbol="💡" label="lightbulb"/> TIP: Use panels to the left to navigate.
-          </p>
+            <span className='gradient'><b>Welcome!</b></span> <p> <Emoji symbol='💡' label='lightbulb'/> TIP: Use panels to the left to navigate. </p> <img src={require('./img/construction_banner.gif')} style={{width:'100%'}}/> <p/> <center> <img src={require('./img/under_construction.gif')} style={{width:'300px'}}/> <img src={require('./img/construction_sign.gif')} style={{width:'200px'}}/> <marquee><b>Warning:</b> this website is <b>under construction</b></marquee> </center>
           </div>
   )
 }
@@ -44,6 +42,7 @@ const Contact = ()=>{
 const Research = ()=>{
   return(
         <div className="ContentWindowContent">
+        <img src={require('./img/research-banner.jpg')} style={{width:"100%"}}/><p/>
           My research spans the fields of HCI/HRI, AI and cognitive science. I'm broadly interested in designing for subsymbolic, emergent, or non-compositional aspects of Language. Such techniques can be used to offload the representational work required by an intelligent system, and create engaging user experiences (that may have otherwise been degraded using a system with over-engineered intelligence).<br/>Some examples of past work includes using your voice as a basis to <a href="https://www.youtube.com/watch?v=IcUq9PZhN7w">control an emotionally expressive robot pet</a>, or using vibrations to enhance the intelligibility of speech in noise.<p></p>
   
             <b>Research Interests</b>
@@ -332,10 +331,11 @@ constructor(props){
 
 render(){
   return(
-    <div className="ContentWindowContent">
-
+    <div className="ContentWindowContent interactive">
         <span className="gradient"><b>interactive</b></span><p></p>
 <p/>
+<center>
+<div className="projWrapper">
         <W69.OpenWindowForever
           id="whatshap"
           content={<WhatsHap/>}
@@ -349,13 +349,64 @@ render(){
 
           <div className="projectButton">
           <img className="projButtonImage" src={require('./img/whatshapicon.png')} alt="project icon"/>
-            <br/><b>WhatsHap</b><br/>
+            <div className="innerProjButton">
+            <b>WhatsHap</b><br/>
             A messaging app with haptic phonemes 
+            </div>
           </div>
 
 
         </W69.OpenWindowForever>
+
+
+
+      <W69.OpenWindowForever
+        id="voodle"
+        content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
+        title="Voodle"
+        additionalClasses="subWindow"       
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+        closedWindow={()=>{}}
+
+      >
+        <div className="projectButton">
+        <img className="projButtonImage" src={require('./img/voodleIcon.png')} alt="project icon"/> 
+        <div className="innerProjButton">
+          <b>Voodle</b><br/>
+          Vocal doodling to sketch affective robot motion
+          </div>
+        </div>
+      </W69.OpenWindowForever>
+
+
+
+       <W69.OpenWindowForever
+        id="voodle"
+        content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
+        title="Voodle"
+        additionalClasses="subWindow"       
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+        closedWindow={()=>{}}
+
+      >
+        <div className="projectButton">
+        <img className="projButtonImage" src={require('./img/voodleIcon.png')} alt="project icon"/> 
+        <div className="innerProjButton">
+          <b>Voodle</b><br/>
+          Vocal doodling to sketch affective robot motion
+          </div>
+        </div>
+      </W69.OpenWindowForever>
+
+          <div style={{display:"inline-block", backgroundColor:"#AAA"}}> asdf </div>           <div style={{display:"inline-block", backgroundColor:"#AAA"}}> two </div>
+                    <div style={{display:"inline-block", backgroundColor:"#AAA"}}> t3re3 </div>
+</div>
+</center>
     </div>
+
+
     )
 
   }

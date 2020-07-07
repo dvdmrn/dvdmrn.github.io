@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import {PhotoGallery} from './PhotoGallery'
-
 // import Gallery from "react-photo-gallery";
 // import Carousel, { Modal, ModalGateway } from "react-images";
 
@@ -23,7 +22,7 @@ class Menu extends Component{
     super(props)
     this.state = {
       lastWindow:"home", 
-      targetWindow:"x", 
+      targetWindow:"home", 
       targetDD:"x",
       offScreen:false,
       menuBase:0
@@ -75,6 +74,7 @@ class Menu extends Component{
                 targetWindow={this.state.targetWindow}
                 overrideStyle={{top:0,left:0}}
                 closedWindow={this.closedWindow.bind(this)}
+                forceShowWindow={window.screen.height/window.screen.width < 1}
 
                 />
             </div>
@@ -294,22 +294,47 @@ class LeftWrapper extends Component{
   }
 }
 
+const loader = document.querySelector('.loadingscreen');
+
+const showLoader = () => loader.classList.remove('loadingscreen--hide');
+const hideLoader = () => loader.classList.add('loadingscreen--hide');
 class App extends Component{
+  
+  constructor(props){
+    super(props)
+    this.fadeOutLoader.bind(this);
+    this.removeLoader.bind(this);
+
+  }
+  componentDidMount(){
+    setTimeout(e=>this.fadeOutLoader(),1000)
+  }
+
+  fadeOutLoader(){
+    this.props.hideLoader();
+    setTimeout(e=>this.removeLoader(),1000)
+
+
+  }
+  removeLoader(){
+    loader.classList.add('invisibile');
+
+  }
 
   render() {
-    // const {isVisible} = this.state;
-      {console.log(window.screen.width/window.screen.height)}
+    
     return (
-
-      <div className="content" id="main">
-        <Desktop/>
-        <LeftWrapper>
-          <Menu/>
-
-        </LeftWrapper>
-      </div>
+        <div className="content" id="main">
+          <Desktop/>
+          <LeftWrapper>
+            <Menu/>
+          </LeftWrapper>
+        </div>
       )
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App 
+                  hideLoader={hideLoader}
+                  showLoader={showLoader} />, 
+                  document.getElementById('root'));

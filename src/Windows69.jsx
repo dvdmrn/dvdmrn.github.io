@@ -125,7 +125,7 @@ class OpenWindowForever extends Component{
   
   render(){
     return(
-      <span>
+      <div>
         <div 
           className="link"
           onClick={(e)=>{
@@ -151,7 +151,7 @@ class OpenWindowForever extends Component{
               onWindowClose={this.props.onWindowClose}
               closedWindow={this.props.closedWindow}
               />
-      </span>
+      </div>
       )
   }
 }
@@ -179,8 +179,8 @@ class OpenWindow extends Component{
       </span>
 
       <GenericWindow 
-        visibile={this.state.clicked}
-        show={(this.props.id === this.props.targetWindow) && this.state.showWindow} 
+        visibile={this.state.clicked || this.props.forceShowWindow}
+        show={(this.props.id === this.props.targetWindow) && (this.state.showWindow || this.props.forceShowWindow)} 
         toggle={this.state.showWindow}
 
         overrideStyle={this.props.overrideStyle}
@@ -398,7 +398,19 @@ class Icon extends Component{
   }
 }
 
+class LoadingScreen extends Component{
+  constructor(props){
+    super(props)
+    this.state = {loaded:false}
+  }
+  render(){
+    return(
+      <div id="LoadingScreen">
+        Now Loading...
+      </div>
+      )
+  }
+}
 
-
-export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon, SimpleDropDown, OpenGallery};
+export {GenericWindow, slideDown, OpenWindow, DropDown, OpenWindowForever, Icon, SimpleDropDown, OpenGallery, LoadingScreen};
 
