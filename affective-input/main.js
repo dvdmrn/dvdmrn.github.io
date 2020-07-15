@@ -183,6 +183,30 @@ svg.append("text")
                   .text("pleasantness")
                   .attr("class","labelText")
 
+svg.append("text")
+                  .attr("x",430)
+                  .attr("y",30)
+                  .attr("class","cognitiveAnchor")
+                  .text("excited")
+
+svg.append("text")
+                  .attr("x",30)
+                  .attr("y",30)
+                  .attr("class","cognitiveAnchor")
+                  .text("dread")
+
+svg.append("text")
+                  .attr("x",30)
+                  .attr("y",480)
+                  .attr("class","cognitiveAnchor")
+                  .text("depressed")
+
+svg.append("text")
+                  .attr("x",430)
+                  .attr("y",480)
+                  .attr("class","cognitiveAnchor")
+                  .text("relaxed")
+
 
 function makeFileName(){
     let pid = document.getElementById("pidField").value
