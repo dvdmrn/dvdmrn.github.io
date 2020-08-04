@@ -130,4 +130,23 @@
     top:0px;
   }
 
+  .projectButton{
+    background-color: #775bff;
+    color:#fee;
+  }
+
+  .projectButton:hover{
+  background: linear-gradient(-60deg, #828 0%, #217 25%, #217 75%, #828 100%);
+  background-size: 800% auto;
+  animation: textShine 7s ease-in-out infinite;
+  cursor: cell;
+
+}
+
+  .quote{
+    background-color: #1e353e;
+    border-left: 2px solid #00cfff;
+    padding-top: 1px;
+  }
+
 }

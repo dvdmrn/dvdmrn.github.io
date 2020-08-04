@@ -16,7 +16,6 @@ import * as Content from './content.jsx';
 import * as Pet from './Pet.jsx'
 
 
-
 class Menu extends Component{
   constructor(props){
     super(props)
@@ -62,7 +61,8 @@ class Menu extends Component{
           onPan={this.onPan}
           animate={this.state.offScreen ? {x:-250} : {x:0}}
           >
-          <div className="topbar gradient"> menu </div>
+          <div className="topbar"> <span className="gradient">menu</span> </div>
+
           <div id="menuItems">
 
             <div onClick={ ()=>{this.setState({targetWindow:"home",targetDD:null, lastWindow:"home"})} }>
@@ -127,7 +127,7 @@ class Menu extends Component{
                   <W69.OpenWindow 
                     id="cv"
                     text="⤷ cv"
-                    content={<Content.About_Education/>}
+                    content={<Content.About_CV/>}
                     title="cv"
                     targetWindow={this.state.targetWindow}
                     overrideStyle={{top:0,left:0}}
@@ -179,6 +179,19 @@ class Menu extends Component{
               id="projects_DD"
               target={this.state.targetDD}
             >
+
+              <div onClick={ e=>this.setState({targetWindow:"interactive",lastWindow:"interactive"}) }>
+                  <W69.OpenWindow 
+                    id="interactive"
+                    text={window.screen.width/window.screen.height < 1 ? "⤷ interactive" : "⤷ interact."}
+                    content={<Content.Projects_Interactive/>}
+                    title="interactive design"
+                    targetWindow={this.state.targetWindow}
+                    overrideStyle={{top:0,left:0}}
+                    closedWindow={this.closedWindow.bind(this)}
+                    />
+              </div>  
+
               <div onClick={ e=>this.setState({targetWindow:"film",lastWindow:"film"}) }>
                   <W69.OpenWindow 
                     id="film"
@@ -191,41 +204,7 @@ class Menu extends Component{
                     />
               </div> 
 
-              <div onClick={ e=>this.setState({targetWindow:"photos",lastWindow:"photos"}) }>
-                  <W69.OpenGallery 
-                    id="photos"
-                    text="⤷ photos"
-                    content={<PhotoGallery/>}
-                    title="photos"
-                    targetWindow={this.state.targetWindow}
-                    overrideStyle={{top:0,left:0}}
-                    closedWindow={this.closedWindow.bind(this)}
-                    />
-              </div>
-
-              <div onClick={ e=>this.setState({targetWindow:"interactive",lastWindow:"interactive"}) }>
-                  <W69.OpenWindow 
-                    id="interactive"
-                    text="⤷ 🤖"
-                    content={<Content.Projects_Interactive/>}
-                    title="interactive"
-                    targetWindow={this.state.targetWindow}
-                    overrideStyle={{top:0,left:0}}
-                    closedWindow={this.closedWindow.bind(this)}
-                    />
-              </div>              
-
-              <div onClick={ e=>this.setState({targetWindow:"comics",lastWindow:"comics"}) }>
-                  <W69.OpenWindow 
-                    id="comics"
-                    text="⤷ comics"
-                    content={<Content.PooWindow/>}
-                    title="comics"
-                    targetWindow={this.state.targetWindow}
-                    overrideStyle={{top:0,left:0}}
-                    closedWindow={this.closedWindow.bind(this)}
-                    />
-              </div>
+              
 
             </W69.DropDown>
             <p/>

@@ -61,7 +61,17 @@ const Research = ()=>{
   
             <a href="https://scholar.google.com/citations?user=dLgup7MAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">My publications</a>.<p></p>
   
-          <a href="" target="_blank" rel="noopener noreferrer">Here</a> are some of my favorite articles
+            
+            <W69.OpenWindowForever
+                id="favArticles"
+                content={<FavArticles/>}
+                title="Fav Articles"
+                additionalClasses="subWindow"       
+                closedWindow={()=>{}}
+          >
+
+          <a>Here</a> are some of my favorite articles
+          </W69.OpenWindowForever>
         </div>
   )
 }
@@ -84,6 +94,31 @@ const About = ()=>{
           I am an affiliate member of <a href="https://languagesciences.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC Language Sciences</a>, and student member of the <a href="https://www.cirmmt.org/" target="_blank" rel="noopener noreferrer">Center for Interdisciplinary Research on Music Media and Technology</a><p></p>
 
           I use they/them pronouns.<p></p>
+    </div>
+
+    )
+}
+
+
+const FavArticles  = ()=>{
+
+  return(
+    <div className="ContentWindowContent">
+    
+    I find the following articles inspiring. Maybe you will too!<p/>
+    <hr/>
+    + <a href="http://www.sciencedirect.com/science/article/pii/000437029190053M" target="_blank" rel="noopener noreferrer">Brooks, R. A. (1991). Intelligence without representation. Artificial intelligence, 47(1), 139-159.</a><p/>
+
+    + <a href="http://www.karger.com/Article/Abstract/208928" target="_blank" rel="noopener noreferrer">Cummins, F. (2009). Rhythm as an affordance for the entrainment of movement. Phonetica, 66(1-2), 15-28.</a><p/>
+
+    + <a href="http://www.cell.com/trends/cognitive-sciences/abstract/S1364-6613(03)00295-X" target="_blank" rel="noopener noreferrer">Garrod, S., & Pickering, M. J. (2004). Why is conversation so easy?. Trends in cognitive sciences, 8(1), 8-11.</a><p/>
+
+    + <a href="http://jn.physiology.org/content/94/6/4209.full" target="_blank" rel="noopener noreferrer">Graziano, M. S., Aflalo, T. N., & Cooke, D. F. (2005). Arm movements evoked by electrical stimulation in the motor cortex of monkeys. Journal of Neurophysiology, 94(6), 4209-4223.</a><p/>
+
+    + <a href="http://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31" target="_blank" rel="noopener noreferrer">Simon, H. A. (1991). The architecture of complexity. In Facets of systems science (pp. 457-476). Springer US.</a><p/>
+
+    + <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5477410&casa_token=8bW8ilLe-ysAAAAA:F4yZpdLNqYTdFzC5k2TnRwo4lucGElFZg-8M1J_ihGAi3-Bs8R4itdNJikL0U93xk_U5LmDw" target="_blank" rel="noopener noreferrer">Kline, R. (2010). Cybernetics, automata studies, and the Dartmouth conference on artificial intelligence. IEEE Annals of the History of Computing, 33(4), 5-16.</a><p/>
+
     </div>
 
     )
@@ -119,6 +154,16 @@ const About_Education = ()=>{
     </div>
   )
 }
+
+const About_CV = ()=>{
+
+  return(
+    <div className="ContentWindowContent">
+      I will upload a comprehensive CV here later. In the meantime, my website pretty much serves as an interactive CV!
+    </div>
+    )
+}
+
 
 const About_Skills = ()=>{
 
@@ -213,7 +258,7 @@ const Projects_Film = (props) =>{
             className="video videoContent"
 
             url="https://www.youtube.com/embed/JKNi4sijfgI" 
-            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            light={true} 
             controls="true" 
             playing={props.playable}
             width='100%'
@@ -234,7 +279,7 @@ const Projects_Film = (props) =>{
 
             url="https://www.youtube.com/embed/qlSJ1vJ66iI" 
             light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
-            controls="true" 
+            light={true} 
             playing={props.playable}
             width='100%'
             height='100%'
@@ -255,7 +300,7 @@ const Projects_Film = (props) =>{
             className="video videoContent"
 
             url="https://www.youtube.com/embed/WY8FivM1gMg" 
-            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            light={true} 
             controls="true" 
             playing={props.playable}
             width='100%'
@@ -277,7 +322,7 @@ const Projects_Film = (props) =>{
             className="video videoContent"
 
             url="https://www.youtube.com/embed/ermbZmipxIs" 
-            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            light={true} 
             controls="true" 
             playing={props.playable}
             width='100%'
@@ -298,7 +343,7 @@ const Projects_Film = (props) =>{
             className="video videoContent"
 
             url="https://www.youtube.com/embed/-rkujE-pwMY" 
-            light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+            light={true} 
             controls="true" 
             playing={props.playable}
             width='100%'
@@ -334,7 +379,7 @@ render(){
     <div className="ContentWindowContent interactive">
         <span className="gradient"><b>interactive</b></span><p></p>
 <p/>
-<center>
+
 <div className="projWrapper">
         <W69.OpenWindowForever
           id="whatshap"
@@ -358,8 +403,6 @@ render(){
 
         </W69.OpenWindowForever>
 
-
-
       <W69.OpenWindowForever
         id="voodle"
         content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
@@ -381,10 +424,10 @@ render(){
 
 
 
-       <W69.OpenWindowForever
-        id="voodle"
-        content={<Voodle id="voodle" playable={this.state.currentWindow=="voodle"}/>}
-        title="Voodle"
+      <W69.OpenWindowForever
+        id="HapticSpeechEnhancement"
+        content={<HapticSpeechEnhancement/>}
+        title="Haptic Speech Enhancement"
         additionalClasses="subWindow"       
         onSetWindow={this.handleSetWindow}
         onWindowClose={this.windowClosed}
@@ -392,18 +435,76 @@ render(){
 
       >
         <div className="projectButton">
-        <img className="projButtonImage" src={require('./img/voodleIcon.png')} alt="project icon"/> 
+        <img className="projButtonImage" src={require('./img/vocalenhancement.png')} alt="project icon"/> 
         <div className="innerProjButton">
-          <b>Voodle</b><br/>
-          Vocal doodling to sketch affective robot motion
+          <b>Haptic Speech Enhancement</b><br/>
+          Using vibrations to enhance the intelligibility of speech in noise
           </div>
         </div>
       </W69.OpenWindowForever>
 
-          <div style={{display:"inline-block", backgroundColor:"#AAA"}}> asdf </div>           <div style={{display:"inline-block", backgroundColor:"#AAA"}}> two </div>
-                    <div style={{display:"inline-block", backgroundColor:"#AAA"}}> t3re3 </div>
+
+      <W69.OpenWindowForever
+        id="Corpus"
+        content={<Corpus/>}
+        title="Corpus"
+        additionalClasses="subWindow"       
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+        closedWindow={()=>{}}
+
+      >
+        <div className="projectButton">
+        <img className="projButtonImage" src={require('./img/corpus.png')} alt="project icon"/> 
+        <div className="innerProjButton">
+          <b>Corpus</b><br/>
+          Rhythm based body horror game
+          </div>
+        </div>
+      </W69.OpenWindowForever>
+
+
+       <W69.OpenWindowForever
+        id="WWHYBI"
+        content={<WeWereHopingYoudBuyIt/>}
+        title="We Were Hoping You'd Buy It"
+        additionalClasses="subWindow"       
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+        closedWindow={()=>{}}
+
+      >
+        <div className="projectButton">
+        <img className="projButtonImage" src={require('./img/wehopingyoubuy.jpg')} alt="project icon"/> 
+        <div className="innerProjButton">
+          <b>We Were Hoping You'd Buy It</b><br/>
+          Augmented reality art show
+          </div>
+        </div>
+      </W69.OpenWindowForever>
+
+       <W69.OpenWindowForever
+        id="CoopRideHailing"
+        content={<Corpus/>}
+        title="Co-operative Ride Hailing"
+        additionalClasses="subWindow"       
+        onSetWindow={this.handleSetWindow}
+        onWindowClose={this.windowClosed}
+        closedWindow={()=>{}}
+
+      >
+        <div className="projectButton">
+        <img className="projButtonImage" src={require('./img/CoopRideHailing.png')} alt="project icon"/> 
+        <div className="innerProjButton">
+          <b>Co-operative ride hailing</b><br/>
+          Public consultation and feasibility assessment for a cooperative ride hailing model
+          </div>
+        </div>
+      </W69.OpenWindowForever>
+
+          
 </div>
-</center>
+
     </div>
 
 
@@ -416,7 +517,9 @@ render(){
 function WhatsHap(){
   return(
       <div className="ContentWindowContent">
-        <b>WhatsHap</b><p/>
+        <b>WhatsHap</b><br/>
+        <i>Collaborators: Jeremy Cooperstock, Mauricio de Vargas, Antoine Weill--Duflos</i>
+        <p/>
         <img src={require('./img/algorithm-sketch.png')} style={{width:'100%', backgroundColor:"white",padding:"10px"}} loading="lazy"/><p/>
         WhatsHap is an instant messaging app that allows you to speak through touch. <br/>
         It converts a user's voice or a text message to a sequence of pattered vibrations
@@ -437,15 +540,16 @@ class Voodle extends Component{
   render(){
     return(
         <div className="ContentWindowContent">
-          <b>Voodle</b>
+          <b>Voodle</b><br/>
+          <i>Collaborators: Karon MacLean, Paul Bucci, Oliver Schneider</i>
           <p/>
           <center>
-          <div className="playerWrapper">
+          <div className="">
             <ReactPlayer 
-              className="video videoContent"
-
+              className="video"
+              width='100%'
               url="https://www.youtube.com/watch?v=IcUq9PZhN7w" 
-              light="https://miro.medium.com/max/1400/1*t_G1kZwKv0p2arQCgYG7IQ.gif" 
+              light={true} 
               controls="true" 
               playing={this.props.playable}
               embedOptions={null}
@@ -469,7 +573,10 @@ class Voodle extends Component{
 function HapticSpeechEnhancement(){
   return(
     <div className="ContentWindowContent">
-    <b>Haptic feedback for enhanced speech intelligibility</b><p/>
+    <b>Haptic feedback for enhanced speech intelligibility</b>
+    <br/>
+    <i>Collaborators: Karon MacLean (computer science), Bryan Gick (linguistics), Sophy Chu, Hanna Elbaggari, Andrew Yang, Tamara Lottering</i>
+    <p/>
     <img src={require("./img/catgirl.jpg")} style={{width:'100%'}} loading="lazy"/><br/>
     <center><i>pictured: me wearing the vibrotactile device</i></center>
     <p>
@@ -537,13 +644,12 @@ function WeWereHopingYoudBuyIt(){
 function Corpus(){
   return(
     <div class="ContentWindowContent">
-    <center><img src={require("./img/corpus-4.gif")} loading="lazy"/></center><p/>
-    Corpus is currently a WIP prototype of an indie body horror rhythm game. In corpus, you fight for get your body back by synchronizing with the enemy.
+    <center><img className="fullWidthImg" src={require("./img/corpus-4.gif")} loading="lazy"/></center><p/>
+    Corpus is a prototype of an indie body horror rhythm game. In corpus, you fight for get your body back by synchronizing with the enemy.
     <p/>
-    <b>design story:</b><br/>
-    Corpus has undergone over many systematic iterations: it started with paper prototypes of interface mechanics, leading up to low fidelity mockups of gameplay mechanics in Unity, to finally more involved implementations with detailed assets. Throughout the development process, each major iteration was evaluated against naive users. Evaluations took many forms: for example, some users were asked to do a cognitive walkthrough or think-aloud task when playing the game, while others were given very minimal instructions, with critical incidents being noted and discussed. Much user feedback was gathered during semi-structured interviews after playing sessions. With Corpus, I used low-cost evaluation techniques to make as many drastic changes to the game as possible before high-fidelity implementations, which drastically saved development time.
+    I programmed and designed this game. It plays like a cross between a shoot-em-up and rhytm game. The player is rewarded for shooting and making maneuvers to the beat of the music playing, encouraging players to express themselves through gameplay in a way similar to freeform jazz--there's no rigid cues to hit as per classic rhythm games. Simply "jamming" to the beat enhances the damage dealt and score multipliers.
     </div>
     )
 }
 
-export {Welcome, PooWindow, Research, Contact, About_Education, About, About_Skills, Projects, Projects_Film, Projects_Interactive}
+export {Welcome, PooWindow, Research, Contact, About, About_Education, About_Skills, About_CV, Projects, Projects_Film, Projects_Interactive}

@@ -35,24 +35,29 @@ constructor(props){
 
 feed(){
 	if(!this.state.speaking){
-	  	this.setState({speaking:true})
-		this.setState({text:""},e=>this.typeWriter("> I'm full, please stop feeding me...",0))
-		this.setState({hunger:this.state.hunger+1})
+		if(this.state.hunger > 7){
+		  	this.setState({speaking:true})
+			this.setState({text:""},e=>this.typeWriter("> I'm full!",0))			
+		}
+		else{
+		  	this.setState({speaking:true})
+			this.setState({text:""},e=>this.typeWriter("> yum!",0))
+			this.setState({hunger:this.state.hunger+1})
+		}
 
-		let ow = new Test("hello");
- 		ow.sayOwie();
+
 	}
 }
 pet(){
 	if(!this.state.speaking){
 		this.setState({speaking:true})
-		this.setState({text:""},e=>this.typeWriter("> haha, that feels nice!",0))
+		this.setState({text:""},e=>this.typeWriter("> *purrs*",0))
 	}
 }
 talk(){
 	if(!this.state.speaking){
 		this.setState({speaking:true})
-		this.setState({text:""},e=>this.typeWriter("> Thanks for talking to me. It's nice to have someone to speak to :)",0))
+		this.setState({text:""},e=>this.typeWriter("> This website highlights a few things David has done, have fun exploring!",0))
 	}
 }
 

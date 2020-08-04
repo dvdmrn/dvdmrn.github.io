@@ -4,6 +4,7 @@ import Gallery from "react-photo-gallery";
 import Carousel, { Modal, ModalGateway } from "react-images";
 import { photos } from "./photos";
 
+
 function PhotoGallery() {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);
@@ -13,11 +14,6 @@ function PhotoGallery() {
     setViewerIsOpen(true);
   }, []);
 
-  const test = useCallback((event, { photo, index }) => {
-    console.log("test with: ",index)
-  }, []);
-
-
   const closeLightbox = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
@@ -25,8 +21,7 @@ function PhotoGallery() {
 
   return (
     <div>
-      <div onClick={e=>alert("owie")}> click me daddy </div>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery photos={photos} onClick={e=>alert("henlo")} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>
@@ -44,6 +39,7 @@ function PhotoGallery() {
     </div>
   );
 }
+
 
 
 export {PhotoGallery}
