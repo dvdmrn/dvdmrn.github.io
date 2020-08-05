@@ -2,7 +2,7 @@
 refactor/
 
 # dependencies
-node_modules/*
+source/node_modules/*
 /.pnp
 .pnp.js
 
