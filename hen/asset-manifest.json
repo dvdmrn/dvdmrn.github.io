@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.cba45a65.chunk.css",
+    "main.js": "./static/js/main.c1b4dabf.chunk.js",
+    "main.js.map": "./static/js/main.c1b4dabf.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.d0270564.js",
+    "runtime-main.js.map": "./static/js/runtime-main.d0270564.js.map",
+    "static/css/2.ceb453a1.chunk.css": "./static/css/2.ceb453a1.chunk.css",
+    "static/js/2.03e63a37.chunk.js": "./static/js/2.03e63a37.chunk.js",
+    "static/js/2.03e63a37.chunk.js.map": "./static/js/2.03e63a37.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.4a6800a7535f53ab0ccfba3d9c60e8e2.js": "./precache-manifest.4a6800a7535f53ab0ccfba3d9c60e8e2.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.ceb453a1.chunk.css.map": "./static/css/2.ceb453a1.chunk.css.map",
+    "static/css/main.cba45a65.chunk.css.map": "./static/css/main.cba45a65.chunk.css.map",
+    "static/js/2.03e63a37.chunk.js.LICENSE.txt": "./static/js/2.03e63a37.chunk.js.LICENSE.txt",
+    "static/media/185828__lloydevans09__little-thing.wav": "./static/media/185828__lloydevans09__little-thing.14d2045a.wav",
+    "static/media/Podington_Bear_Humble_Pie.mp3": "./static/media/Podington_Bear_Humble_Pie.86efc71c.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d0270564.js",
+    "static/css/2.ceb453a1.chunk.css",
+    "static/js/2.03e63a37.chunk.js",
+    "static/css/main.cba45a65.chunk.css",
+    "static/js/main.c1b4dabf.chunk.js"
+  ]
+}
