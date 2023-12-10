@@ -1,0 +1,15 @@
+.list-icon{
+    height:1em;
+    /* width: 1em; */
+    vertical-align: middle;
+    /* border: 5px solid red; */
+}
+
+.skill-card{
+    text-align: left; 
+    display: block;
+}
+
+.skill-item{
+    margin-left:20px;
+}

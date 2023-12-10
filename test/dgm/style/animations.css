@@ -1,0 +1,71 @@
+/* shiny text */
+
+@keyframes textShine {
+    to {
+      background-position: 200%;
+    }
+  }
+  
+.gradient{
+    background: linear-gradient(-60deg,#775bff 20%,#fd75ff 30%,#fd75ff 70%,#775bff 80%);
+    background-size: auto;
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* text-fill-color: transparent; */
+    background-size: 200% auto;
+    -webkit-animation: textShine 7s ease-in-out infinite;
+    animation: textShine 7s ease-in-out infinite;
+}
+
+/* transitions */
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+    
+    50% {
+        transform: scale(1.01);
+    }
+    
+    
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    } 
+  }
+
+
+  .anim-pop-in {
+    /* animation: 3s  alternate slidein; */
+    animation-duration: 1s;
+    animation-name: popIn;
+    animation-iteration-count:initial;
+    animation-direction: alternate;
+    /* transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); */
+    animation-timing-function: cubic-bezier();
+    /* transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);  */
+  }
+  .anim-slide-in {
+    /* animation: 3s  alternate slidein; */
+    animation-duration: 1s;
+    animation-name: slidein;
+    animation-iteration-count:initial;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+    /* animation-timing-function:; */
+  }
+
+  @keyframes slidein {
+    from {
+      opacity: 0;
+      margin-bottom: 50%;
+    }
+  
+    to {
+      opacity: 1;
+      margin-bottom: 0%;
+    } 
+  }

@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&family=Ubuntu+Mono&family=Ubuntu:wght@300;400;700&display=swap');
+@import url('animations.css');
+@import url('hamburger.css');
+@import url('layout.css');
+@import url('about.css');
+
+/* global ========================================= */
+body{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  vertical-align: text-bottom;
+  line-height: normal;
+  background-color: #14141a;
+  color:rgb(239, 228, 236);
+  margin:0px;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(255, 248, 253);
+    /* color: rgb(255, 61, 200); */
+}
+
+a:hover {
+    color:#ffa7ed;
+}
+
+input{
+    background-color:#100f14;
+    color:rgb(255, 248, 253);
+    margin: 0px;
+    border: 0px solid black;
+    border-bottom: 1px solid white;
+    padding:10px;
+}
+
+input:current{
+    color:red;
+}
+
+
+
+/* typography ========================================= */
+.title{
+  font-size: 25px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.header{
+    display: inline-block;
+    font-size: 25px;
+    margin-top:20px;
+    overflow: visible;
+}
+
+.indent{
+    margin-left:20px;
+}
+
+.img-full{
+    max-width: 200px;
+}
+
+.subheader{
+  font-family: 'Nunito';
+  font-weight: 800;
+  font-size: calc(15px + 1.5vmin);
+  /* font-size:30px; */
+}
+
+.subtitle{
+    color: hsla(0,0%,100%,.651);
+    font-size: 12px;
+}
+
+.tag{
+    display: inline-block;
+    padding: 4px;
+    border: 1px solid #775bff;
+    border-radius: 4px;
+    background-color: #18113d;
+    margin: 2px;
+}
+
+.link-tag{
+    /* display: inline-block; */
+    /* all:unset; */
+    display: block;
+    /* width: 100%; */
+    padding: 4px;
+    border: 2px solid #342e56;
+    border-radius: 10px;
+    background-color: #100f15;
+    margin-top: 20px;
+    backdrop-filter: blur(6px);
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 400;
+    color: #ffa7ed;
+
+
+
+
+    /* padding: 4px;
+  border: 1px solid #5f51bc;
+  border-radius: 10px;
+  background-color: #1b1926;
+  margin-top: 20px;
+  backdrop-filter: blur(6px);
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 400;
+  color: #ffb0ef; */
+}
+
+.link-tag:hover{
+    background-color: #1a1822;
+}
+
+.rm-text-affordances{
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.secondary{
+  font-size: calc(10px + 1.3vmin);
+  color: rgba(255, 255, 255, 0.651);
+}
+
+
+
+ 
+
+
+
+
+
+
+  
+
+
+
+
+  @media (min-aspect-ratio: 1){
+    .link-tag{
+      display: inline-block;
+      padding:10px;
+    }
+    /* .onlymobile{
+        visibility:visible;
+    }
+
+    .onlydesktop{
+        visibility: hidden;
+        width: 0px;
+        height: 0px;
+        position: fixed;
+    } */
+}
