@@ -1,0 +1,135 @@
+:root{
+    --proj-highlight-border: #c6c6c6;
+}
+
+.project-card{
+  background-color: var(--card-bg);
+  display: inline-block;
+  width: 350px;
+  margin: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  /* filter: drop-shadow(8px 8px 0px #000); */
+}
+
+.project-card:hover{
+  /* background-color: #2e2561; */
+  background: linear-gradient(90deg,#1b13448b 0%,#6c488d5e 50%,#2619688b 100%);
+  background-size: auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  /* animation: bgCardShine 7s linear infinite; */
+
+  cursor: pointer;
+}
+
+@keyframes bgCardShine {
+  to {
+    background-position: 200%;
+  }
+}
+
+#project-area{
+  display: flex;
+  align-items: top;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#project-bg{
+  /* display: fixed; */
+  position:fixed;
+  background-color: #1e17207d;
+  /* backdrop-filter: blur(2px); */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+#project-highlight{
+    border: 10px solid #a5a5a5;
+    position: fixed;
+    background-color: #0c0f13;
+    /* height: 100vh; */
+    padding: 10px;
+    left: 0;
+    right: 0;
+    bottom:0px;
+    top:0px;
+    overflow-y: scroll;
+
+}
+
+#proj-controls{
+    position: absolute;
+    right: 20px;
+	top: 10px;
+}
+
+.proj-controls-button-generic {
+	/* background-color: #3b4049; */
+	color: #ababd2;
+	display: inline-block;
+	border-radius: 50%;    
+	height: 25px;
+	width: 25px;
+	font-size: 17px;
+    text-align: center;
+}
+
+.project-thumb{
+  border-radius: 8px 8px 0px 0px;
+  width: 100%;
+  /* width:  100px;
+  height: 100px; */
+  height:200px;
+  object-fit: cover;
+}
+
+.project-textarea{
+  padding:30px;
+  text-align: left;
+}
+
+.project-title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.project-slug{
+  color: rgba(255, 255, 255, 0.651);
+  font-size: 16px;
+  margin-top:8px;
+}
+
+.project-img{
+  width: 100%;
+}
+.project-video{
+  text-align: center;
+}
+.video{
+  width: 100%;
+  max-width: 560;
+}
+
+
+
+@media (min-aspect-ratio: 1){
+    #project-highlight{
+        border: 2px solid var(--proj-highlight-border);
+        background-color: #100f14;
+        filter: drop-shadow(8px 8px 0px var(--proj-highlight-border));
+        max-width: 900px;
+        width: 100%;
+        padding:50px;
+        overflow: scroll;
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+        bottom: 20px;
+    }
+}

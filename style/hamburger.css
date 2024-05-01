@@ -1,0 +1,82 @@
+#hamburger-menu-space{
+    position: fixed;
+    left:10px;
+    bottom:10px;
+    right: 35px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+#hamburger-menu-icon{
+    all:unset;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #100f15c2;
+    /* border: 1px solid var(--border-color); */
+    max-width: fit-content;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    animation: popIn 1s ease-out;
+}
+
+#hamburger-dropdown{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  display: block;
+  width: 100%;
+  margin-right: 10px;
+  margin-top:5px;
+  backdrop-filter: blur(4px);
+  font-size: inherit;
+  /* display: none; */
+
+}
+
+.hamburger-item{
+  all:unset;
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+.hamburger-item:hover{
+  background-color: rgba(36, 28, 82, 0.2);
+}
+
+.hamburger-dropdown-closed{
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+}
+
+
+@media (min-aspect-ratio: 1){
+    #hamburger-dropdown{
+        width: fit-content;
+    }
+
+    #hamburger-menu-space{
+      font-size:18px;
+    }
+}

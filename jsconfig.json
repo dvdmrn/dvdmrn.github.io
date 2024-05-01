@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "target": "ES2020",
+        "jsx": "react",
+        "allowImportingTsExtensions": true,
+        "checkJs": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "plugins": [
+            {
+              "name": "typescript-lit-html-plugin",
+              "tags": [
+                "html",
+                "template"
+              ]
+            }
+          ]
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
+}
